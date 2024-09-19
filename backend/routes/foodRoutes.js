@@ -1,6 +1,8 @@
 const express = require('express')
 
 const router = express.Router()
+const Food = require('../models/foodsModel')
+
 
 
 //GET Request
@@ -14,7 +16,16 @@ router.get('/:id', (req,res) => {
 })
 
 //POST
-router.post('/', (req,res) => {
+router.post('/', async (req,res) => {
+    const { name, description, price, category } = req.body
+
+    try {
+        const food = await Food.create({name, description, price, category})
+        res.status(200).json(food)
+    } catch (error) {
+        res.status(400).json({error: error.message})
+    }
+
     res.json({mssg: 'POST Request'})
 })
 
