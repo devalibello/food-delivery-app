@@ -24,9 +24,9 @@ router.delete('/:id', (req,res) => {
 })
 
 //PATCH
-router.patch('/', (req,res) => {
+router.patch('/:id', (req,res) => {
     res.json({mssg: 'PATCH request'})
 })
 
 
-module.export = router
+module.exports = router
