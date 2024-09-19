@@ -1,9 +1,14 @@
 require("dotenv").config();
 
 const express = require("express");
+const foodRouter = require("./routes/foodRoutes")
 
 //express app
-const app = express();
+const app = express()
+
+
+//routes middleware
+// app.use('/api/foods', foodRouter)
 
 //Listen for requests
 app.listen(process.env.PORT, () => {
