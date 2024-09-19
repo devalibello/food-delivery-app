@@ -8,7 +8,7 @@ const app = express()
 
 
 //routes middleware
-// app.use('/api/foods', foodRouter)
+app.use('/api/foods', foodRouter)
 
 //Listen for requests
 app.listen(process.env.PORT, () => {
