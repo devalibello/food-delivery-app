@@ -15,26 +15,24 @@ router.get('/:id', (req,res) => {
     res.json({mssg: 'GET single food'})
 })
 
-//POST
+//POST request
 router.post('/', async (req,res) => {
-    const { name, description, price, category } = req.body
+    const { name, description, price, category, image } = req.body
 
     try {
-        const food = await Food.create({name, description, price, category})
+        const food = await Food.create({name, description, price, category, image})
         res.status(200).json(food)
     } catch (error) {
         res.status(400).json({error: error.message})
     }
-
-    res.json({mssg: 'POST Request'})
 })
 
-//DELETE
+//DELETE request
 router.delete('/:id', (req,res) => {
     res.json({mssg: 'DELETE Request'})
 })
 
-//PATCH
+//PATCH request
 router.patch('/:id', (req,res) => {
     res.json({mssg: 'PATCH request'})
 })
