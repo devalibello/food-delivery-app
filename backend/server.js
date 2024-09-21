@@ -15,6 +15,9 @@ app.use(express.json())
 //routes middleware
 app.use('/api/foods', foodRouter)
 
+//middleware for accessing images from frontend
+app.use('/images', express.static('uploads'))
+
 //connect to db
 
 mongoose.connect(process.env.MONGO_URI)
