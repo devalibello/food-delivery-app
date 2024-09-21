@@ -1,5 +1,6 @@
 const Food = require('../models/foodsModel')
 const mongoose = require('mongoose')
+const fs = require('fs')
 
 
 //GET
@@ -38,11 +39,17 @@ const deleteFood = async (req, res) => {
         return res.status(404).json({error: 'No such food!'})
     }
 
-    const food = await Food.findByIdAndDelete({_id: id})
+    const food = await Food.findByIdAndDelete(id)
     if (!food) {
         return res.status(404).json({error: 'No such food!'})
     }
-    
+
+    if (food.image) {
+        fs.unlink(`uploads/${food.image}`, () => {
+
+        })
+    }
+
     res.status(200).json(food)
 }
 
