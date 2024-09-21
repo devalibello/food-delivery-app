@@ -17,12 +17,12 @@ const getFoods = async (req, res) => {
 //POST
 
 const createFood = async (req, res) => {
-    let image_filename = `${req.image.filename}`
+    let image_filename = req.file ? `${req.file.filename}` : null
 
     const { name, description, price, category } = req.body
 
     try {
-        const food = await Food.create({name, description, price, category, image_filename})
+        const food = await Food.create({name, description, price, category, image: image_filename})
         res.status(200).json(food)
     } catch (error) {
         res.status(400).json({error: error.message})
