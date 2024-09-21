@@ -1,5 +1,5 @@
 const express = require('express')
-const { createFood, getFoods } = require('../controllers/foodController')
+const { createFood, getFoods, deleteFood } = require('../controllers/foodController')
 
 const router = express.Router()
 
@@ -18,7 +18,7 @@ router.post('/', createFood)
 
 
 //DELETE request
-router.delete('/:id', )
+router.delete('/:id', deleteFood)
 
 //PATCH request
 router.patch('/:id', (req,res) => {

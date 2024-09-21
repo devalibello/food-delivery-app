@@ -1,4 +1,5 @@
 const Food = require('../models/foodsModel')
+const mongoose = require('mongoose')
 
 
 //GET
@@ -28,16 +29,23 @@ const createFood = async (req, res) => {
 
 //DELETE
 
-const deleteFood = (req, res) => {
+const deleteFood = async (req, res) => {
     const { id } = req.params
+    if (!mongoose.Types.ObjectId.isValid(id))
+    {
+        return res.status(404).json({error: 'No such food!'})
+    }
 
-    if (!mongoose.Types.ObjectId.valid)
-        
-    const food = Food.findByIdAndDelete(id)
+    const food = await Food.findByIdAndDelete({_id: id})
+    if (!food) {
+        return res.status(404).json({error: 'No such food!'})
+    }
+    
+    res.status(200).json(food)
 }
-
 
 module.exports = {
     createFood,
-    getFoods
+    getFoods,
+    deleteFood
 }
