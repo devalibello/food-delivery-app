@@ -1,5 +1,6 @@
 const Food = require('../models/foodsModel')
 const mongoose = require('mongoose')
+const multer  = require('multer')
 
 
 //GET
@@ -17,6 +18,8 @@ const getFoods = async (req, res) => {
 //POST
 
 const createFood = async (req, res) => {
+    const upload = multer({ dest: 'uploads/' })
+
     const { name, description, price, category, image } = req.body
 
     try {
