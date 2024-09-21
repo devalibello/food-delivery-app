@@ -5,8 +5,8 @@ const Food = require('../models/foodsModel')
 
 const getFoods = async (req, res) => {
     try {
-        const foods = await Food.find({})
-        res.json(foods)
+        const foods = await Food.find({}).sort({createdAt: -1})
+        res.status(200).json(foods)
 
     } catch(error) {
         res.status(400).json({ error: error.message})
