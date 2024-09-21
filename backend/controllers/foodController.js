@@ -26,6 +26,16 @@ const createFood = async (req, res) => {
     }
 }
 
+//DELETE
+
+const deleteFood = (req, res) => {
+    const { id } = req.params
+
+    if (!mongoose.Types.ObjectId.valid)
+        
+    const food = Food.findByIdAndDelete(id)
+}
+
 
 module.exports = {
     createFood,

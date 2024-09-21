@@ -18,9 +18,7 @@ router.post('/', createFood)
 
 
 //DELETE request
-router.delete('/:id', (req,res) => {
-    res.json({mssg: 'DELETE Request'})
-})
+router.delete('/:id', )
 
 //PATCH request
 router.patch('/:id', (req,res) => {
