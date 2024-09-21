@@ -1,6 +1,5 @@
 const Food = require('../models/foodsModel')
 const mongoose = require('mongoose')
-const multer  = require('multer')
 
 
 //GET
@@ -18,12 +17,12 @@ const getFoods = async (req, res) => {
 //POST
 
 const createFood = async (req, res) => {
-    const upload = multer({ dest: 'uploads/' })
+    let image_filename = `${req.image.filename}`
 
-    const { name, description, price, category, image } = req.body
+    const { name, description, price, category } = req.body
 
     try {
-        const food = await Food.create({name, description, price, category, image})
+        const food = await Food.create({name, description, price, category, image_filename})
         res.status(200).json(food)
     } catch (error) {
         res.status(400).json({error: error.message})
