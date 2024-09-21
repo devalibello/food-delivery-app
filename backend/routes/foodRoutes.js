@@ -1,14 +1,12 @@
 const express = require('express')
+const { createFood, getFoods } = require('../controllers/foodController')
 
 const router = express.Router()
-const Food = require('../models/foodsModel')
 
 
 
 //GET Request
-router.get('/', (req,res) => {
-    res.json({mssg: 'GET request'})
-})
+router.get('/', getFoods)
 
 //GET Single Request
 router.get('/:id', (req,res) => {
@@ -16,16 +14,8 @@ router.get('/:id', (req,res) => {
 })
 
 //POST request
-router.post('/', async (req,res) => {
-    const { name, description, price, category, image } = req.body
+router.post('/', createFood)
 
-    try {
-        const food = await Food.create({name, description, price, category, image})
-        res.status(200).json(food)
-    } catch (error) {
-        res.status(400).json({error: error.message})
-    }
-})
 
 //DELETE request
 router.delete('/:id', (req,res) => {
