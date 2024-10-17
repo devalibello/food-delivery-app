@@ -1,0 +1,13 @@
+.dishes {
+    margin: 30px 20px;
+}
+
+.dishes h2 {
+    margin-bottom: 20px;
+    margin-top: 40px;
+}
+
+.dish-container {
+    border: 2px solid var(--light-ash);
+}
+
