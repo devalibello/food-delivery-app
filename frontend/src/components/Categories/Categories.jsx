@@ -1,21 +1,19 @@
 import './Categories.css'
-import { assets } from '../../assets/assets'
-const Categories = () => {
+import { categoryList } from '../../assets/assets'
+const Categories = ({category, setCategory}) => {
   return (
     <div className='categories'>
       <h2>Explore Our Menu</h2>
       <p className='categories-subheading'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br />Velit quae modi, quibusdam eius esse tenetur? Vel accusamus iure nostrum tempore?</p>
       <div className="food-categories">
-        <div className="food-container">
-            <img src={assets.burger} alt="" />
-            <h3>Burger</h3>
-            <p>Exceptional Taste</p>
+      { categoryList.map((food, index) => 
+        <div onClick={() => setCategory(prev => prev === food.name ? 'All' : food.name)}
+            key={index} className={`food-container ${category === food.name ? 'active' : ''}`}>
+            <img src={food.image} alt="" />
+            <h3>{food.name}</h3>
+            <p>{food.footer}</p>
         </div>
-        <div className="food-container">
-            <img src={assets.burger} alt="" />
-            <h3>Burger</h3>
-            <p>Exceptional Taste</p>
-        </div>
+      )}
       </div>
     </div>
   )
