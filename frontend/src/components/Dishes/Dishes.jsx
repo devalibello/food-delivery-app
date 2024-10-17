@@ -8,11 +8,15 @@ const Dishes = () => {
   return (
     <div className="dishes">
       <h2>Your Favorite Dishes</h2>
-      <div className="dish-container">
-        <img src={foodList[0].image} alt="" />
-        <h3>{foodList[0].name}</h3>
-        <p>{foodList[0].description}</p>
-        <h3>${foodList[0].price}</h3>
+      <div className="dish-section">
+      {foodList.map((food) => 
+        <div className="dish-container">
+            <img src={food.image} alt="" />
+            <h3>{food.name}</h3>
+            <p>{food.description}</p>
+            <h3>${food.price}</h3>
+      </div>
+      )}
       </div>
     </div>
   );
