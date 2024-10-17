@@ -1,4 +1,4 @@
-import banner from '../../images/banner-image.png'
+import { assets } from '../../assets/assets'
 import './Banner.css'
 
 
@@ -10,7 +10,7 @@ const Banner = () => {
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente, recusandae!</p>
                 <button className='btn'>View Menu</button>
             </div>
-            <img className='banner-image' src={banner} alt="" />
+            <img className='banner-image' src={assets.bannerImage} alt="" />
     </div>
   )
 }
