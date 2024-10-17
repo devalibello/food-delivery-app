@@ -1,6 +1,9 @@
 import './Categories.css'
 import { categoryList } from '../../assets/assets'
+
+
 const Categories = ({category, setCategory}) => {
+  
   return (
     <div className='categories'>
       <h2>Explore Our Menu</h2>
