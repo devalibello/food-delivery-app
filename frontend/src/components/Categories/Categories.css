@@ -1,0 +1,30 @@
+.categories {
+    margin: 30px 20px;
+}
+
+.categories .categories-subheading {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+.food-container {
+    background-color: rgba(0, 0, 0, .05);
+    width: fit-content;
+    border-radius: 10px;
+}
+
+.food-container h3 {
+    padding-left: 22px;
+}
+
+.food-container p {
+    padding-left: 22px;
+    color: var(--orange);
+    margin-bottom: 10px;
+}
+
+.food-categories {
+    display: grid;
+    gap: 30px;
+    justify-content: center;
+}
