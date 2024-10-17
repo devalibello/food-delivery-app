@@ -8,6 +8,31 @@
 }
 
 .dish-container {
-    border: 2px solid var(--light-ash);
+    background-color: var(--dark-blue);
+    border-radius: 12px;
+    width: fit-content;
+    padding-bottom: 20px;
 }
 
+.dish-container h3 {
+    color: var(--orange);
+    padding-left: 22px;
+}
+
+.dish-container p {
+    color: white;
+    padding-left: 22px;
+    font-size: 0.9rem;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dish-container img {
+    margin-bottom: 5px;
+}
+
+.dish-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}

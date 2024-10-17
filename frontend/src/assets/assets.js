@@ -51,23 +51,23 @@ export const foodList = [
         name: 'Salad',
         image: salad,
         price: 50,
-        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, iusto!',
+        description: 'Exceptional Taste',
         category: 'Salad'
     },
     {
         _id: '2',
-        name: 'Salad Mix',
-        image: salad,
+        name: 'Italian Pizza',
+        image: pizza,
         price: 55,
-        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, iusto!',
+        description: 'Exceptional Taste',
         category: 'Salad'
     },
     {
         _id: '3',
-        name: 'Salad Special',
-        image: salad,
+        name: 'Milky Pasta',
+        image: pasta,
         price: 40,
-        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, iusto!',
+        description: 'Exceptional Taste',
         category: 'Salad'
     }
 ]
