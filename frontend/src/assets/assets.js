@@ -16,3 +16,33 @@ export const assets = {
     salad,
     soup
 }
+
+export const categoryList = [
+    {
+        image: burger,
+        name: 'Burger',
+        footer: 'Special Taste'
+    },
+    {
+        image: pasta,
+        name: 'Pasta',
+        footer: 'Special Taste'
+    },
+    {
+        image: pizza,
+        name: 'Pizza',
+        footer: 'Special Taste'
+    },
+    {
+        image: salad,
+        name: 'Salad',
+        footer: 'Special Taste'
+    },
+    {
+        image: soup,
+        name: 'Soup',
+        footer: 'Special Taste'
+    },
+]
+
+export const 

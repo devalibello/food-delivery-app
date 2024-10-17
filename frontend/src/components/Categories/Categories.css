@@ -13,6 +13,11 @@
     border-radius: 10px;
 }
 
+.food-container.active {
+    border: 4px solid var(--orange);
+    transition: 0.2s;
+}
+
 .food-container h3 {
     padding-left: 22px;
 }
@@ -24,7 +29,12 @@
 }
 
 .food-categories {
-    display: grid;
+    display: flex;
     gap: 30px;
-    justify-content: center;
+    overflow-x: scroll;
+    cursor: pointer;
+}
+
+.food-categories::-webkit-scrollbar {
+    display: none;
 }
