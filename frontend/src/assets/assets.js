@@ -1,5 +1,5 @@
 import bannerImage from './banner-image.png'
-import burger from './burger-category'
+import burger from './burger-category.png'
 import logo from './logo.svg'
 import pasta from './pasta-category.png'
 import pizza from './pizza-category.png'
