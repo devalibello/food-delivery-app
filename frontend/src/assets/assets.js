@@ -45,4 +45,14 @@ export const categoryList = [
     },
 ]
 
-export const 
+export const foodList = [
+    {
+        _id: '1',
+        name: 'Salad',
+        image: salad,
+        price: $50,
+        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas, iusto!',
+        category: 'Salad'
+
+    }
+]
