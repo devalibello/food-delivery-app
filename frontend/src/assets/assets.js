@@ -65,7 +65,7 @@ export const foodList = [
         image: pizza,
         price: 55,
         description: 'Exceptional Taste',
-        category: 'Salad'
+        category: 'Pizza'
     },
     {
         _id: '3',
