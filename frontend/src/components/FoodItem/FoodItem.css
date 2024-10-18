@@ -1,0 +1,38 @@
+.dish-container {
+    position: relative;
+}
+
+.add-food-white {
+    position: absolute;
+    bottom: 120px;
+    right: 15px;
+    width: 40px;
+}
+
+.food-counter {
+    position: absolute;
+    bottom: 125px;
+    right: 15px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1.5fr 1fr;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 50px;
+}
+
+.add-food {
+    width: 30px;
+    padding-right: 4px;
+    padding-top: 4px;
+}
+
+.remove-food {
+    width: 30px;
+    padding-left: 4px;
+    padding-top: 4px;
+}
+
+.dish-container .cart-counter-display {
+    color: var(--dark-blue);
+}
