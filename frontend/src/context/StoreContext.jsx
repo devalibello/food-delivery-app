@@ -31,7 +31,9 @@ const StoreContextProvider = (props) => {
     const contextValue = {
         foodList,
         addToCart,
-        removeFromCart
+        removeFromCart,
+        setCartItems,
+        cartItems
     }
     return (
         <StoreContext.Provider value={contextValue} >
