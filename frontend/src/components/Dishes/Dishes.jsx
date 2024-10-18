@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { StoreContext } from "../../context/StoreContext";
 import "./Dishes.css";
+import FoodItem from "../FoodItem/FoodItem";
 
 const Dishes = () => {
   const { foodList } = useContext(StoreContext);
@@ -10,12 +11,13 @@ const Dishes = () => {
       <h2>Your Favorite Dishes</h2>
       <div className="dish-section">
       {foodList.map((food) => 
-        <div className="dish-container">
-            <img src={food.image} alt="" />
-            <h3>{food.name}</h3>
-            <p>{food.description}</p>
-            <h3>${food.price}</h3>
-      </div>
+        <FoodItem 
+            id={food.id}
+            name={food.name}
+            description={food.description}
+            image={food.image}
+            price={food.price}
+        />
       )}
       </div>
     </div>
