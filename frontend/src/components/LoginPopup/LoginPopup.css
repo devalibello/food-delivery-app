@@ -68,3 +68,7 @@
     font-weight: 700;
     color: var(--green);
 }
+
+.close-login {
+    cursor: pointer;
+}

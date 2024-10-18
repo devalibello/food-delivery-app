@@ -10,7 +10,10 @@ const LoginPopup = ({setShowLogin}) => {
         <form className='login-popup-form'>
             <div className="login-header">
                 <h2>{currentState}</h2>
-                <img onClick={() => setShowLogin(false)} src={assets.crossIcon} alt="" className="close-login" />
+                <img onClick={() => {
+                    setShowLogin(false);
+                    document.body.style.overflow = 'auto';
+                }} src={assets.crossIcon} alt="" className="close-login" />
             </div>
             <div className="form-inputs">
             {
