@@ -5,7 +5,9 @@ import pasta from './pasta-category.png'
 import pizza from './pizza-category.png'
 import salad from './salad-category.png'
 import soup from './soups-category.png'
-
+import addIconGreen from './add_icon_green.png'
+import removeIconRed from './remove_icon_red.png'
+import addIconWhite from './add_icon_white.png'
 
 export const assets = {
     bannerImage,
@@ -14,7 +16,10 @@ export const assets = {
     pasta,
     pizza,
     salad,
-    soup
+    soup,
+    addIconGreen,
+    removeIconRed,
+    addIconWhite
 }
 
 export const categoryList = [
