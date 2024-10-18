@@ -23,13 +23,23 @@ const Cart = () => {
                     <li>Price: ${food.price}</li>
                     <li>Quantity: {cartItems[food._id]}</li>
                     <li>Total: ${food.price * cartItems[food._id]}</li>
-                    <li>Remove</li>
+                    <li onClick={() => removeFromCart(food._id)}>Remove</li>
                   </ul>
-              <hr />    
             </>
           )
         }
       })}
+      <hr />
+      <div className="cart-buttom">
+        <h2>Cart Total</h2>
+        <ul className="cart-total-section">
+          <li>Subtotal: <span className='grand-total'>$</span></li>
+          <hr />
+          <li>Delivery Fee: <span className='grand-total'>$50</span></li>
+          <hr />
+          <li>Grand Total: <span className='grand-total'>$</span></li>
+        </ul>
+      </div>
     </div>
   )
 }
