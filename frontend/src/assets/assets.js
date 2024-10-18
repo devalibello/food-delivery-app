@@ -8,6 +8,7 @@ import soup from './soups-category.png'
 import addIconGreen from './add_icon_green.png'
 import removeIconRed from './remove_icon_red.png'
 import addIconWhite from './add_icon_white.png'
+import crossIcon from './cross_icon.png'
 
 export const assets = {
     bannerImage,
@@ -19,7 +20,8 @@ export const assets = {
     soup,
     addIconGreen,
     removeIconRed,
-    addIconWhite
+    addIconWhite,
+    crossIcon
 }
 
 export const categoryList = [

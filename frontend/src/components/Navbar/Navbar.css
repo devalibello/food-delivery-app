@@ -4,4 +4,12 @@
 
 .navbar {
     margin: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn.signin {
+    background-color: var(--green);
+    border-color: var(--green);
 }
