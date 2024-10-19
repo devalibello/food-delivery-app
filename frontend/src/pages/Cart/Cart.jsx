@@ -2,10 +2,17 @@ import React, { useContext } from 'react'
 import { StoreContext } from '../../context/StoreContext'
 import './Cart.css'
 import { foodList } from '../../assets/assets'
+import { useNavigate } from 'react-router-dom'
 
 const Cart = () => {
 
   const { cartItems, removeFromCart, getTotalAmount } = useContext(StoreContext)
+
+  const navigate = useNavigate()
+
+  const goToCheckout = () => {
+    navigate('/order')
+  } 
 
   return (
     <div className='cart'>
@@ -35,19 +42,20 @@ const Cart = () => {
         <div className="cart-total-section">
           <div className="cart-total-cal">
             <p>Subtotal:</p>
-            <p className='grand-total'>$</p>
+            <p className='grand-total'>${getTotalAmount()}</p>
           </div>        
           <hr />
           <div className="cart-total-cal">
             <p>Delivery Fee:</p>
-            <p className='grand-total'>$50</p>
+            <p className='grand-total'>${getTotalAmount() ? 50 : 0}</p>
           </div> 
           <hr />
           <div className="cart-total-cal">
             <p>Grand Total:</p>
-            <p className='grand-total'>${getTotalAmount()}</p>
+            <p className='grand-total'>${getTotalAmount() ? getTotalAmount() + 50 : 0}</p>
           </div> 
         </div>
+        <button onClick={() => goToCheckout()} className='checkout-btn'>CHECKOUT</button>
       </div>
     </div>
   )
