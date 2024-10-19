@@ -68,4 +68,10 @@
 
 .grand-total {
     color: var(--dark-blue);
+    font-weight: 600;
+}
+
+.cart-total-cal {
+    display: flex;
+    justify-content: space-between;
 }
