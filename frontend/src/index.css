@@ -12,4 +12,5 @@
   padding: 0px;
   list-style: none;
   font-family: 'Poppins', 'Courier New', Courier, monospace;
+  box-sizing: border-box;
 }

@@ -1,0 +1,23 @@
+.cart-buttom h2 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.cart-total-section {
+    font-weight: 500;
+}
+
+.cart-total-section hr {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.grand-total {
+    color: var(--dark-blue);
+    font-weight: 600;
+}
+
+.cart-total-cal {
+    display: flex;
+    justify-content: space-between;
+}
