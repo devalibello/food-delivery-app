@@ -1,0 +1,18 @@
+.sidebar {
+    margin: 20px;
+}
+
+.sidebar-menu {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.sidebar-menu p {
+    font-weight: 500;
+}
+
+.sidebar hr {
+    margin-bottom: 30px;
+}
