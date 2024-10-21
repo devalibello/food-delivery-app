@@ -1,0 +1,31 @@
+.place-order {
+    margin: 20px;
+}
+
+.place-order h2 {
+    margin-bottom: 20px;
+}
+
+.place-order .checkout-form input {
+    padding: 10px;
+    border-radius: 4px;
+    outline: none;
+    border: 1px solid #c9c9c9;
+    margin-bottom: 20px;
+    flex: 1;
+    box-sizing: border-box;
+}
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.horizontal-fields {
+    display: flex;
+    gap: 20px;
+}
+
+.dual-input {
+    min-width: 0;
+}
