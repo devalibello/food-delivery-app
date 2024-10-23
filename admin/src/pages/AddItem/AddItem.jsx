@@ -1,29 +1,44 @@
 import React from 'react'
 import './AddItem.css'
+import { assets } from '../../assets/assets'
+import { useState } from 'react'
 
 const AddItem = () => {
+    const [image, setImage] = useState(false)
+
   return (
     <div className='add-item'>
-        <img src="" alt="" className="add-image" />
         <form className="add-item-form">
             <div className="product-info">
+                <p>Product Image</p>
+                <label htmlFor="image">
+                    <img src={image ? URL.createObjectURL(image) : assets.upload_area} alt="" className="add-image" />
+                </label>
+                <input onChange={(e) => (e.target.files[0])} type="file" id='image' hidden required />
+            </div>
+            <div className="product-info">
                 <p>Product Name</p>
-                <input type="text" placeholder='Type Here' />
+                <input type="text" placeholder='Type Here' required/>
             </div>
             <div className="product-info">
                 <p>Product Description</p>
-                <input type='longtext' placeholder='Write Here' />
+                <textarea rows='5' type='longtext' placeholder='Type Here' required />
             </div>
             <div className="product-category-price">
                 <div className="side-product">
                     <p>Product Category</p>
-                    <input type='dropdown' placeholder='Write Here' />
+                    <select>
+                        <option value="Pizza">Pizza</option>
+                        <option value="Cake">Cake</option>
+                        <option value="Salad">Salad</option>
+                    </select>
                 </div>
                 <div className="side-product">
                     <p>Product Price</p>
-                    <input type='longtext' placeholder='Type Here' />
+                    <input type='Number' placeholder='Type Here' />
                 </div>            
             </div>
+            <button type='submit'>Add</button>
         </form>
     </div>
   )

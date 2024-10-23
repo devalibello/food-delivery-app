@@ -1,7 +1,45 @@
-.add-item-form input {
+.add-item-form input, textarea, select {
     border: 1px solid #c9c9c9;
     outline: none;
     padding: 10px;
     border-radius: 4px;
+    width: 100%;
+}
 
+.add-item {
+    margin: 20px;
+}
+
+.add-item-form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 20px;
+}
+
+.product-category-price {
+    display: flex;
+    gap: 20px;
+    min-width: 0px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px;
+    width: 100%;
+    background-color: var(--orange);
+    border: none;
+    color: white;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.add-item-form p {
+    padding-bottom: 10px;
+}
+
+.add-image {
+    width: 150px;
 }
