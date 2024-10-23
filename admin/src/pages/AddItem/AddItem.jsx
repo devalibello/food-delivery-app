@@ -12,9 +12,9 @@ const AddItem = () => {
             <div className="product-info">
                 <p>Product Image</p>
                 <label htmlFor="image">
-                    <img src={image ? URL.createObjectURL(image) : assets.upload_area} alt="" className="add-image" />
+                    <img src={image ? URL.createObjectURL(image) : assets.upload_area} alt="product" className="add-image" />
                 </label>
-                <input onChange={(e) => (e.target.files[0])} type="file" id='image' hidden required />
+                <input onChange={(e) => (setImage(e.target.files[0]))} type="file" id='image' hidden required />
             </div>
             <div className="product-info">
                 <p>Product Name</p>
@@ -35,7 +35,7 @@ const AddItem = () => {
                 </div>
                 <div className="side-product">
                     <p>Product Price</p>
-                    <input type='Number' placeholder='Type Here' />
+                    <input type='Number' placeholder='Enter Price' />
                 </div>            
             </div>
             <button type='submit'>Add</button>
