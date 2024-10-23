@@ -16,3 +16,8 @@
 .sidebar hr {
     margin-bottom: 30px;
 }
+
+.sidebar > * {
+    text-decoration: none;
+    
+}
