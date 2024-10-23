@@ -6,8 +6,8 @@ import { NavLink } from 'react-router-dom'
 const Sidebar = () => {
   return (
     <div className='sidebar'>
-        <hr />
-        <NavLink to='/add' className="sidebar-menu">
+        <hr className='hr-1'/>
+        <NavLink to='/add' className="sidebar-menu one">
             <img src={assets.add_icon} alt="" />
             <h3>Add Food</h3>
         </NavLink>
@@ -15,7 +15,7 @@ const Sidebar = () => {
             <img src={assets.order_icon} alt="" />
             <h3>List Food</h3>
         </NavLink>
-        <hr />
+        <hr className='hr-2'/>
     </div>
   )
 }
