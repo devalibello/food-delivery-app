@@ -19,5 +19,19 @@
 
 .sidebar > * {
     text-decoration: none;
-    
+    color: inherit;
+
+}
+
+.sidebar-menu.active {
+    background-color: #f0eeee;
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.sidebar-menu {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+
 }
