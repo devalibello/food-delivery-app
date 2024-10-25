@@ -1,14 +1,41 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './AddItem.css'
 import { assets } from '../../assets/assets'
 import { useState } from 'react'
 
 const AddItem = () => {
     const [image, setImage] = useState(false)
+    const [data, setData] = useState({
+        name : '',
+        description: '',
+        category: 'Pizza',
+        price: ''
+    })
+
+    const onChangeHandler = (event) => {
+        const name = event.target.name
+        const value = event.target.value
+        setData(data => ({...data, [name]: value}))
+    }
+
+    const onSubmitHandler = (event) => {
+        event.preventDefault();
+        const formData = new FormData()
+        formData.append('name', data.name)
+        formData.append('description', data.description)
+        formData.append('category', data.category)
+        formData.append('price', Number(data.price))
+        formData.append('image', image)
+        console.log(formData)
+    }
+
+    // useEffect(() => {
+    //     console.log(data)
+    // },[data])
 
   return (
     <div className='add-item'>
-        <form className="add-item-form">
+        <form className="add-item-form" onSubmit={onSubmitHandler}>
             <div className="product-info">
                 <p>Product Image</p>
                 <label htmlFor="image">
@@ -18,16 +45,16 @@ const AddItem = () => {
             </div>
             <div className="product-info">
                 <p>Product Name</p>
-                <input type="text" placeholder='Type Here' required/>
+                <input onChange={onChangeHandler} name='name' value={data.name} type="text" placeholder='Type Here' required/>
             </div>
             <div className="product-info">
                 <p>Product Description</p>
-                <textarea rows='5' type='longtext' placeholder='Type Here' required />
+                <textarea onChange={onChangeHandler} name='description' value={data.description} rows='5' type='longtext' placeholder='Type Here' required />
             </div>
             <div className="product-category-price">
                 <div className="side-product">
                     <p>Product Category</p>
-                    <select>
+                    <select onChange={onChangeHandler} name='category'>
                         <option value="Pizza">Pizza</option>
                         <option value="Cake">Cake</option>
                         <option value="Salad">Salad</option>
@@ -36,7 +63,7 @@ const AddItem = () => {
                 </div>
                 <div className="side-product">
                     <p>Product Price</p>
-                    <input type='Number' placeholder='Enter Price' />
+                    <input onChange={onChangeHandler} name='price' value={data.price} type='Number' placeholder='Enter Price' />
                 </div>            
             </div>
             <button type='submit'>Add</button>
