@@ -5,7 +5,7 @@ import { useState } from 'react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
 
-const AddItem = () => {
+const AddItem = ({url}) => {
     const [image, setImage] = useState(false)
     const [data, setData] = useState({
         name : '',
@@ -29,7 +29,7 @@ const AddItem = () => {
         formData.append('price', Number(data.price))
         formData.append('image', image)
 
-        const response = await axios.post("http://localhost:4000/api/foods/", formData)
+        const response = await axios.post(`${url}/api/foods/`, formData)
         if (response.status == 200) {
             setData({
                 name : '',
@@ -49,23 +49,23 @@ const AddItem = () => {
     <div className='add-item'>
         <form className="add-item-form" onSubmit={onSubmitHandler}>
             <div className="product-info">
-                <p>Product Image</p>
+                <p className='add-item-form-label'>Product Image</p>
                 <label htmlFor="image">
                     <img src={image ? URL.createObjectURL(image) : assets.upload_area} alt="product" className="add-image" />
                 </label>
                 <input onChange={(e) => (setImage(e.target.files[0]))} type="file" id='image' hidden required />
             </div>
             <div className="product-info">
-                <p>Product Name</p>
+                <p className='add-item-form-label'>Product Name</p>
                 <input onChange={onChangeHandler} name='name' value={data.name} type="text" placeholder='Type Here' required/>
             </div>
             <div className="product-info">
-                <p>Product Description</p>
+                <p className='add-item-form-label'>Product Description</p>
                 <textarea onChange={onChangeHandler} name='description' value={data.description} rows='5' type='longtext' placeholder='Type Here' required />
             </div>
             <div className="product-category-price">
                 <div className="side-product">
-                    <p>Product Category</p>
+                    <p className='add-item-form-label'>Product Category</p>
                     <select onChange={onChangeHandler} name='category'>
                         <option value="Pizza">Pizza</option>
                         <option value="Cake">Cake</option>
@@ -74,7 +74,7 @@ const AddItem = () => {
                     </select>
                 </div>
                 <div className="side-product">
-                    <p>Product Price</p>
+                    <p className='add-item-form-label'>Product Price</p>
                     <input onChange={onChangeHandler} name='price' value={data.price} type='Number' placeholder='Enter Price' />
                 </div>            
             </div>

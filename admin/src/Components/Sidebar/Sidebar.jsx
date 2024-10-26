@@ -9,11 +9,11 @@ const Sidebar = () => {
         <hr className='hr-1'/>
         <NavLink to='/add' className="sidebar-menu one">
             <img src={assets.add_icon} alt="" />
-            <h3>Add Food</h3>
+            <h4>Add Food</h4>
         </NavLink>
         <NavLink to='/list' className="sidebar-menu">
             <img src={assets.order_icon} alt="" />
-            <h3>List Food</h3>
+            <h4>List Food</h4>
         </NavLink>
         <hr className='hr-2'/>
     </div>
