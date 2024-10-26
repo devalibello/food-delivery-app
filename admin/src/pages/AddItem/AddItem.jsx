@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import './AddItem.css'
 import { assets } from '../../assets/assets'
 import { useState } from 'react'
+import axios from 'axios'
 
 const AddItem = () => {
     const [image, setImage] = useState(false)
@@ -18,7 +19,7 @@ const AddItem = () => {
         setData(data => ({...data, [name]: value}))
     }
 
-    const onSubmitHandler = (event) => {
+    const onSubmitHandler = async (event) => {
         event.preventDefault();
         const formData = new FormData()
         formData.append('name', data.name)
@@ -26,12 +27,10 @@ const AddItem = () => {
         formData.append('category', data.category)
         formData.append('price', Number(data.price))
         formData.append('image', image)
-        console.log(formData)
-    }
 
-    // useEffect(() => {
-    //     console.log(data)
-    // },[data])
+        const response = await axios.post("http://localhost:4000/api/foods/", formData)
+        console.log(await response.data)
+    }
 
   return (
     <div className='add-item'>
