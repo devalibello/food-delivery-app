@@ -29,7 +29,7 @@ const AddItem = () => {
         formData.append('image', image)
 
         const response = await axios.post("http://localhost:4000/api/foods/", formData)
-        console.log(await response.data)
+        console.log(response.data)
     }
 
   return (
