@@ -10,7 +10,7 @@ const { cartItems, addToCart, removeFromCart } = useContext(StoreContext)
 
   return (
         <div key={id} className="dish-container">
-            <img src={image} alt="" />
+            <img className='food-item-image' src={image} alt="" />
             {
                 !cartItems[id]
                 ? <img onClick={() => addToCart(id)} src={assets.addIconWhite} alt="" className='add-food-white'/>
@@ -18,11 +18,11 @@ const { cartItems, addToCart, removeFromCart } = useContext(StoreContext)
                     <img onClick={() => removeFromCart(id)} src={assets.removeIconRed} alt="" className='remove-food' />
                     <p className="cart-counter-display">{cartItems[id]}</p>
                     <img onClick={() => addToCart(id)} src={assets.addIconGreen} alt="" className="add-food" />
-                </div>
+                  </div>
             }
-            <h3>{name}</h3>
-            <p>{description}</p>
-            <h3>${price}</h3>
+            <p className='dish-container-food-name'>{name}</p>
+            {/* <p>{description}</p> */}
+            <h3 className='dish-container-food-price'>${price}</h3>
       </div>
   )
 }

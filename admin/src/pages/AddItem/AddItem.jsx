@@ -3,6 +3,7 @@ import './AddItem.css'
 import { assets } from '../../assets/assets'
 import { useState } from 'react'
 import axios from 'axios'
+import { toast } from 'react-toastify'
 
 const AddItem = () => {
     const [image, setImage] = useState(false)
@@ -29,7 +30,19 @@ const AddItem = () => {
         formData.append('image', image)
 
         const response = await axios.post("http://localhost:4000/api/foods/", formData)
-        console.log(response.data)
+        if (response.status == 200) {
+            setData({
+                name : '',
+                description: '',
+                category: 'Pizza',
+                price: ''
+            })
+            setImage(false)
+            toast.success("Food Added")
+        } else {
+            toast.error("Error Adding Food")
+        }
+        
     }
 
   return (
