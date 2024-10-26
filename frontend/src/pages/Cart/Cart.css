@@ -15,6 +15,7 @@
 
 .cart-food-image {
     width: 150px;
+    border-radius: 10px;
 }
 
 .cart-header :nth-child(1) {
