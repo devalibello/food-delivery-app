@@ -2,10 +2,13 @@ require("dotenv").config();
 
 const express = require("express")
 const mongoose = require("mongoose")
+const cors = require("cors")
 const foodRouter = require('./routes/foodRoutes')
 
 //express app
 const app = express()
+
+app.use(cors())
 
 //parse incoming request into req handler in JSON format when the req has a body.
 //This is used for POST or PATCH requests
