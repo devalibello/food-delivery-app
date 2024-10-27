@@ -41,13 +41,19 @@ const StoreContextProvider = (props) => {
         return totalAmount;
     }
 
+    const url = 'http://localhost:4000'
+
+    const [token, setToken] = useState('')
+
     const contextValue = {
         foodList,
         addToCart,
         removeFromCart,
         setCartItems,
         cartItems,
-        getTotalAmount
+        getTotalAmount,
+        url,
+        setToken
     }
     
     return (

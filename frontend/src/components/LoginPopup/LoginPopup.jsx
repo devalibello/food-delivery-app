@@ -1,13 +1,60 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './LoginPopup.css'
 import { assets } from '../../assets/assets'
+import { StoreContext } from '../../context/StoreContext'
+import axios from 'axios'
+import toast from 'react-toastify'
 
 const LoginPopup = ({setShowLogin}) => {
 
+    const {url, setToken} = useContext(StoreContext)
+
     const [currentState, setCurrentState] = useState("Sign Up")
+    const [data, setData] = useState({
+        name: "",
+        email: "",
+        password: ""
+    })
+
+
+    const onChangeHandler = (event) => {
+        const name = event.target.name
+        setData((prevData) => ({...prevData, [name]: event.target.value }))
+    }
+
+    const onSubmitHandler = async (event) => {
+        event.preventDefault()
+        if (currentState === "Sign Up") {
+            const response = await axios.post(`${url}/api/user/signup`, data)
+            if (response.status == 200) {
+                toast.success(response.data.mssg)
+                setToken(response.data.token)
+                localStorage.setItem('token', response.data.token)
+            }
+
+            if (response.status == 400) {
+                toast.error(response.data.error)
+            }
+
+        } else {
+            const response = await axios.post(`${url}/api/user/login`, data)
+            if (response.status == 200) {
+                toast.success(response.data.mssg)
+                setToken(response.data.token)
+                localStorage.setItem('token', response.data.token)
+            }
+
+            if (response.status == 400) {
+                toast.error(response.data.error)
+            }
+
+        }
+
+    }
+
   return (
     <div className='login-popup'>
-        <form className='login-popup-form'>
+        <form onSubmit={onSubmitHandler} className='login-popup-form'>
             <div className="login-header">
                 <h2>{currentState}</h2>
                 <img onClick={() => {
@@ -18,13 +65,13 @@ const LoginPopup = ({setShowLogin}) => {
             <div className="form-inputs">
             {
                 currentState === "Sign Up"
-                ? <input type="text" placeholder='Name' required />
+                ? <input onChange={onChangeHandler} name='name' value={data.name} type="text" placeholder='Name' required />
                 : <></>
             }                
-                <input type="email" placeholder='Email' required />
-                <input type="password" placeholder='Password' required />
+                <input onChange={onChangeHandler} name='email' value={data.email} type="email" placeholder='Email' required />
+                <input onChange={onChangeHandler} name='password' value={data.password} type="password" placeholder='Password' required />
             </div>
-            <button>
+            <button type='submit'>
                 {
                     currentState === "Sign Up"
                     ? "Create Account" : "Login"
