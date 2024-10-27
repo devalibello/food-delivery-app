@@ -3,7 +3,7 @@ import './LoginPopup.css'
 import { assets } from '../../assets/assets'
 import { StoreContext } from '../../context/StoreContext'
 import axios from 'axios'
-import toast from 'react-toastify'
+import {toast} from 'react-toastify'
 
 const LoginPopup = ({setShowLogin}) => {
 
@@ -26,30 +26,33 @@ const LoginPopup = ({setShowLogin}) => {
         event.preventDefault()
         if (currentState === "Sign Up") {
             const response = await axios.post(`${url}/api/user/signup`, data)
+            console.log(response)
             if (response.status == 200) {
-                toast.success(response.data.mssg)
                 setToken(response.data.token)
                 localStorage.setItem('token', response.data.token)
+                setShowLogin(false)
+                toast.success(response.data.mssg)
             }
 
             if (response.status == 400) {
+                setShowLogin(false)
                 toast.error(response.data.error)
             }
 
         } else {
             const response = await axios.post(`${url}/api/user/login`, data)
             if (response.status == 200) {
-                toast.success(response.data.mssg)
                 setToken(response.data.token)
                 localStorage.setItem('token', response.data.token)
+                setShowLogin(false)
+                toast.success(response.data.mssg)
             }
 
             if (response.status == 400) {
+                setShowLogin(false)
                 toast.error(response.data.error)
             }
-
         }
-
     }
 
   return (
