@@ -10,7 +10,8 @@ import removeIconRed from './remove_icon_red.png'
 import addIconWhite from './add_icon_white.png'
 import crossIcon from './cross_icon.png'
 import bagIcon from './bag_icon.png'
-import pizza_cycle from './pizza_cycle.png'
+import profile_icon from './profile_icon.png'
+import logout_icon from './logout_icon.png'
 
 export const assets = {
     bannerImage,
@@ -25,7 +26,8 @@ export const assets = {
     addIconWhite,
     crossIcon,
     bagIcon,
-    pizza_cycle
+    profile_icon,
+    logout_icon
 }
 
 export const categoryList = [

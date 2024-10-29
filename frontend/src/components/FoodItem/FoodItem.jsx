@@ -21,7 +21,6 @@ const { cartItems, addToCart, removeFromCart } = useContext(StoreContext)
                   </div>
             }
             <p className='dish-container-food-name'>{name}</p>
-            {/* <p>{description}</p> */}
             <h3 className='dish-container-food-price'>${price}</h3>
       </div>
   )
