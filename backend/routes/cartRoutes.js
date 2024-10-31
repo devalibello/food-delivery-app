@@ -1,11 +1,11 @@
-import express from 'express'
-import { addToCart, removeFromCart, getCart } from '../controllers/cartController'
-import { authMiddleware } from '../middleware/auth'
+const express = require('express')
+const { addToCart, removeFromCart, getCart } = require('../controllers/cartController')
+const authMiddleware = require('../middleware/auth')
 
-const cartRouter = express.Router()
+const router = express.Router()
 
-cartRouter.post('/add', authMiddleware, addToCart)
-cartRouter.post('/remove', authMiddleware, removeFromCart)
-cartRouter.post('/get', authMiddleware, getCart)
+router.post('/add', authMiddleware, addToCart)
+router.post('/remove', authMiddleware, removeFromCart)
+router.post('/get', authMiddleware, getCart)
 
-module.exports = cartRouter;
+module.exports = router;

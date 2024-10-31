@@ -1,16 +1,16 @@
-import userModel from '../models/userModel'
+const User  = require('../models/userModel')
 
 const addToCart = async (req, res) => {
     try {
-        let userData = await userModel.findById({id: req.user});
-        let cartData = await userData.cartData
+        let userData = await User.findById(req.body.userId);
+        let cartData = userData.cartData
         if (!cartData[req.body.itemId]) {
             cartData[req.body.itemId] = 1
         } else {
             cartData[req.body.itemId] += 1
         }
-        await userModel.findByIdAndUpdate(req.body.userId, {cartData})
-        res.status(200).json({message: 'Added Item'})
+        await User.findByIdAndUpdate(req.body.userId, {cartData})
+        res.status(200).json({mssg: 'Added Item'})
     } catch (error) {
         res.status(401).json({error: 'Error Adding Item'})
     }
@@ -18,11 +18,11 @@ const addToCart = async (req, res) => {
 
 const removeFromCart = async (req, res) => {
     try {
-        let userData = await userModel.findById({_id: req.body.userId})
-        let cartData = await userData.cartData
+        let userData = await User.findById(req.body.userId)
+        let cartData = userData.cartData
         if (cartData[req.body.itemId] > 0) {
             cartData[req.body.itemId] -= 1
-            await userModel.findByIdAndUpdate(req.body.userId, {cartData})
+            await User.findByIdAndUpdate(req.body.userId, {cartData})
             res.status(200).json({mssg: 'Item Removed'})
 
         } else {
@@ -36,8 +36,8 @@ const removeFromCart = async (req, res) => {
 
 const getCart = async (req, res) => {
     try {
-        let userData = await userModel.findById({_id: req.body.userId})
-        let cartData = await userData.cartData
+        let userData = await User.findById(req.body.userId)
+        let cartData = userData.cartData
         res.status(200).json({cartData})
     } catch (error) {
         res.status(401).json({error: 'Error fetching Cart'})
@@ -45,4 +45,4 @@ const getCart = async (req, res) => {
 }
 
 
-module.exports = {addToCart, removeFromCart, getCart}
+module.exports = { addToCart, removeFromCart, getCart }

@@ -24,6 +24,7 @@ const LoginPopup = ({setShowLogin}) => {
 
     const onSubmitHandler = async (event) => {
         event.preventDefault()
+        document.body.style.overflow = 'auto';
         if (currentState === "Sign Up") {
             const response = await axios.post(`${url}/api/user/signup`, data)
             if (response.status == 200) {
