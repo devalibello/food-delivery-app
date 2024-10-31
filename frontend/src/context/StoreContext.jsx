@@ -1,5 +1,4 @@
 import { createContext, useEffect, useState } from "react";
-// import { foodList } from "../assets/assets";
 import axios from 'axios'
 
 
@@ -9,15 +8,11 @@ export const StoreContext = createContext(null);
 const StoreContextProvider = (props) => {
 
     const [cartItems, setCartItems] = useState({})
-
     const [foodList, setFoodList] = useState([])
-
     const url = 'http://localhost:4000'
-
     const [token, setToken] = useState('')
 
-    const addToCart = (itemId) => {
-        console.log(cartItems)
+    const addToCart = async (itemId) => {
         if (!cartItems[itemId]) {
             setCartItems(prev => ({
                 ...prev, [itemId]: 1
@@ -29,12 +24,34 @@ const StoreContextProvider = (props) => {
             }))
         }
 
+        if (token) {
+            await axios.post(
+                `${url}/api/cart/add`,
+                { itemId },
+                { headers: { Authorization: `Bearer ${token}` } })
+        }
     }
 
-    const removeFromCart = (itemId) => {
+    const removeFromCart = async (itemId) => {
         setCartItems(prev => ({
             ...prev, [itemId]: prev[itemId]-1
         }))
+
+        if (token) {
+            await axios.post(
+                `${url}/api/cart/remove`,
+                { itemId },
+                { headers: { Authorization: `Bearer ${token}` } })
+        }
+    }
+
+    const loadCartData = async (token) => {
+        const response = await axios.post(
+            `${url}/api/cart/get`,
+            {},
+            { headers: { Authorization: `Bearer ${token}` } }
+        )
+        setCartItems(response.data.cartData)
     }
 
     const getTotalAmount = () => {
@@ -54,8 +71,14 @@ const StoreContextProvider = (props) => {
     }
 
     useEffect(() => {
-        async function loadData() {
+        const loadData = async () => {
             await getFoodList()
+            let userToken = localStorage.getItem('token')
+            if (userToken) {
+                setToken(userToken)
+                await loadCartData(userToken)
+
+            }
         }
         loadData();
     }, [])

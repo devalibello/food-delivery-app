@@ -8,7 +8,7 @@ import { toast } from 'react-toastify'
 
 const Navbar = ({setShowLogin}) => {
 
-  const { setToken } = useContext(StoreContext)
+  const { setToken, token } = useContext(StoreContext)
 
   const navigate = useNavigate()
   const userToken = localStorage.getItem('token')
