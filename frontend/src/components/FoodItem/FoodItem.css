@@ -1,7 +1,7 @@
 .dish-container {
     position: relative;
     width: 100%;
-    border-radius: 15px 15px 9px 9px;
+    border-radius: 10px 10px 10px 10px;
     background-color: var(--dark-blue);
 }
 
@@ -63,4 +63,8 @@
 
 .dish-container img {
     margin-bottom: 5px;
+}
+
+.food-item-image {
+    border-radius: 10px 10px 0px 0px;
 }

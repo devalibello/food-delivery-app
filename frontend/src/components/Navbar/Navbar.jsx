@@ -1,13 +1,24 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import './Navbar.css'
 import { assets } from '../../assets/assets'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { StoreContext } from '../../context/StoreContext'
+import { toast } from 'react-toastify'
 
 
 const Navbar = ({setShowLogin}) => {
 
-  const { token } = useContext(StoreContext)
+  const { setToken } = useContext(StoreContext)
+
+  const navigate = useNavigate()
+  const userToken = localStorage.getItem('token')
+
+  const logout = () => {
+      setToken('')
+      localStorage.removeItem('token')
+      navigate('/')
+      toast.success('Logout Successful')
+    }
 
   return (
     <div className='navbar'>
@@ -16,11 +27,11 @@ const Navbar = ({setShowLogin}) => {
           <div className="nav-menu">
             <Link to='/cart'><img src={assets.bagIcon} alt="" className="cart-icon" /></Link>
             {
-              !token ? 
+              userToken ? 
               <div className="profile-container">
                 <img src={assets.profile_icon} alt="" className="profile-icon" /> 
-                <ul className="profile-section">
-                  <li className="order-logout">
+                <div className="profile-section">
+                  <div className="order-logout">
                     <div className="order">
                       <img src={assets.bagIcon} alt="" className="order-image" />
                       <p>Orders</p>
@@ -28,10 +39,10 @@ const Navbar = ({setShowLogin}) => {
                     <p>|</p>
                     <div className="logout">
                       <img src={assets.logout_icon} alt="" className="logout-image" />
-                      <p>Logout</p>
+                      <p onClick={logout}>Logout</p>
                     </div>
-                  </li>
-                </ul>   
+                  </div>
+                </div>   
               </div>     
               : <button onClick={() => {
                   setShowLogin(true);

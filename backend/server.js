@@ -5,6 +5,7 @@ const mongoose = require("mongoose")
 const cors = require("cors")
 const foodRouter = require('./routes/foodRoutes')
 const userRouter = require('./routes/userRoutes')
+const cartRouter = require('./routes/cartRoutes')
 
 //express app
 const app = express()
@@ -19,6 +20,7 @@ app.use(express.json())
 //routes middleware
 app.use('/api/foods', foodRouter)
 app.use('/api/user', userRouter)
+app.use('/api/cart', cartRouter)
 
 //middleware for accessing images from frontend
 app.use('/images', express.static('uploads'))
