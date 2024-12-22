@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import './PlaceOrder.css'
 import CartTotal from '../../components/CartTotal/CartTotal'
 import { useNavigate } from 'react-router-dom'
+import { StoreContext } from '../../context/StoreContext'
 
 const PlaceOrder = () => {
+
+  const { getTotalAmount, token, foodList, cartItems } = useContext(StoreContext)
 
   const [ data, setData ] = useState({
     firstName: '',
@@ -20,7 +23,6 @@ const PlaceOrder = () => {
   const onChangeHandler = (event) => {
     const name = event.target.name
     const value = event.target.value
-    console.log(name, value)
     setData((data) => ({
       ...data,
       [name]: value
@@ -30,8 +32,23 @@ const PlaceOrder = () => {
 
   const navigate = useNavigate()
 
-  const goToPayment = () => {
-    navigate('/payment')
+  const goToPayment = async () => {
+    let orderItems = []
+    foodList.map((food) => {
+      if (cartItems[food._id] > 0) {
+        let foodQuantity = food
+
+        //Add quantity property to ordered food items
+        foodQuantity["quantity"] = cartItems[food._id]
+        orderItems.push(foodQuantity)
+      }
+    })
+
+    console.log(orderItems);
+    
+
+
+    // navigate('/payment')
   }
   return (
     <div className='place-order'>
@@ -46,10 +63,10 @@ const PlaceOrder = () => {
           <input onChange={onChangeHandler} name='state' value={data.state} className='dual-input' type="text" placeholder='State'/>
         </div>
         <div className="horizontal-fields">          
-          <input onChange={} className='dual-input' type="text" placeholder='zipcode'/>
-          <input className='dual-input' type="text" placeholder='Country'/>
+          <input onChange={onChangeHandler} name='zipcode' value={data.zipcode} className='dual-input' type="text" placeholder='zipcode'/>
+          <input onChange={onChangeHandler} name='country' value={data.country} className='dual-input' type="text" placeholder='Country'/>
         </div>
-        <input type="text" placeholder='Phone'/>
+        <input onChange={onChangeHandler} name='phone' value={data.phone} type="text" placeholder='Phone'/>
       </form>
       <div className="cart-totals">
         <CartTotal payment="PAYMENT" goToPayment={goToPayment} />
