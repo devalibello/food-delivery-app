@@ -6,5 +6,5 @@ const router = express.Router()
 
 router.post('/order', authMiddleware, placeOrder)
 
-module.export = router
+module.exports = router
 

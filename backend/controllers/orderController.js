@@ -1,10 +1,19 @@
 const Order = require('../models/orderModel')
 const User = require('../models/userModel')
-import stripe from 'stripe'
+const Stripe = require('stripe')
+
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
 
 // placing user order
 const placeOrder = async (req, res) => {
+    try {
+        const newOrder = new Order({
+            userId: req.body.userId
+        })
+    } catch (error) {
+        
+    }
 
 }
 
-module.export = placeOrder
+module.exports = placeOrder
