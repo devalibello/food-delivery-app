@@ -15,12 +15,13 @@ const frontend_url = "http://localhost:5173"
             amount: req.body.amount,
             address: req.body.address
         })
-        await User.save()
+
+        await newOrder.save()
         await User.findByIdAndUpdate(req.body.userId, {cartData: {}})
 
         const line_items = req.body.items.map((item) => ({
             price_data: {
-                currency: 'NGR',
+                currency: 'ngn',
                 product_data: {
                     name: item.name
                 },
@@ -31,7 +32,7 @@ const frontend_url = "http://localhost:5173"
 
         line_items.push({
             price_data: {
-                currency: "NGR",
+                currency: "ngn",
                 product_data: {
                     name: 'Delivery Charges'
                 },
@@ -46,7 +47,7 @@ const frontend_url = "http://localhost:5173"
             success_url: `${frontend_url}/verify?success=true&orderId=${newOrder._id}`,
             cancel_url: `${frontend_url}/verify?success=false&orderId=${newOrder._id}`
         })
-
+        
         res.json({success: true, success_url: session.url})
 
     } catch (error) {

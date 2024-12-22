@@ -3,10 +3,11 @@ import './PlaceOrder.css'
 import CartTotal from '../../components/CartTotal/CartTotal'
 import { useNavigate } from 'react-router-dom'
 import { StoreContext } from '../../context/StoreContext'
+import axios from 'axios'
 
 const PlaceOrder = () => {
 
-  const { getTotalAmount, token, foodList, cartItems } = useContext(StoreContext)
+  const { getTotalAmount, token, foodList, cartItems, url } = useContext(StoreContext)
 
   const [ data, setData ] = useState({
     firstName: '',
@@ -32,7 +33,8 @@ const PlaceOrder = () => {
 
   const navigate = useNavigate()
 
-  const goToPayment = async () => {
+  const goToPayment = async (event) => {
+    event.preventDefault()
     let orderItems = []
     foodList.map((food) => {
       if (cartItems[food._id] > 0) {
@@ -44,33 +46,44 @@ const PlaceOrder = () => {
       }
     })
 
-    console.log(orderItems);
+    let orderData = {
+      address: data,
+      items: orderItems,
+      amount: getTotalAmount() + 50
+    }
+
+    let response = await axios.post(`${url}/api/order`, orderData, { headers: {Authorization: `Bearer ${token}`} })
+
+    if (response.data.success) {
+      const {success_url} = response.data
+      window.location.replace(success_url)
+    }
+    else {
+      toast.error("Error Making Payment")
+    }
     
-
-
-    // navigate('/payment')
   }
   return (
     <div className='place-order'>
-    <h2>Delivery Information</h2>
-      <form className="checkout-form">
-        <input onChange={onChangeHandler} name='firstName' value={data.firstName} type="text" placeholder='First name'/>
-        <input onChange={onChangeHandler} name='lastName' value={data.lastName} type="text" placeholder='Last name'/>
-        <input onChange={onChangeHandler} name='email' value={data.email} type="email" placeholder='Email'/>
-        <input onChange={onChangeHandler} name='street' value={data.street} type="text" placeholder='Street'/>
+      <h2>Delivery Information</h2>
+      <form onSubmit={goToPayment} className="checkout-form">
+        <input required onChange={onChangeHandler} name='firstName' value={data.firstName} type="text" placeholder='First name'/>
+        <input required onChange={onChangeHandler} name='lastName' value={data.lastName} type="text" placeholder='Last name'/>
+        <input required onChange={onChangeHandler} name='email' value={data.email} type="email" placeholder='Email'/>
+        <input required onChange={onChangeHandler} name='street' value={data.street} type="text" placeholder='Street'/>
         <div className="horizontal-fields">
-          <input onChange={onChangeHandler} name='city' value={data.city} className='dual-input' type="text" placeholder='City'/>
-          <input onChange={onChangeHandler} name='state' value={data.state} className='dual-input' type="text" placeholder='State'/>
+          <input required onChange={onChangeHandler} name='city' value={data.city} className='dual-input' type="text" placeholder='City'/>
+          <input required onChange={onChangeHandler} name='state' value={data.state} className='dual-input' type="text" placeholder='State'/>
         </div>
         <div className="horizontal-fields">          
-          <input onChange={onChangeHandler} name='zipcode' value={data.zipcode} className='dual-input' type="text" placeholder='zipcode'/>
-          <input onChange={onChangeHandler} name='country' value={data.country} className='dual-input' type="text" placeholder='Country'/>
+          <input required onChange={onChangeHandler} name='zipcode' value={data.zipcode} className='dual-input' type="text" placeholder='zipcode'/>
+          <input required onChange={onChangeHandler} name='country' value={data.country} className='dual-input' type="text" placeholder='Country'/>
         </div>
-        <input onChange={onChangeHandler} name='phone' value={data.phone} type="text" placeholder='Phone'/>
+        <input required onChange={onChangeHandler} name='phone' value={data.phone} type="text" placeholder='Phone'/>
+        <div className="cart-totals">
+          <CartTotal payment="PAYMENT" goToPayment={goToPayment} />
+        </div>
       </form>
-      <div className="cart-totals">
-        <CartTotal payment="PAYMENT" goToPayment={goToPayment} />
-      </div>
     </div>
   )
 }
