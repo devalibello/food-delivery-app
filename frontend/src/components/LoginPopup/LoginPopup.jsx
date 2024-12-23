@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import './LoginPopup.css'
 import { assets } from '../../assets/assets'
 import { StoreContext } from '../../context/StoreContext'
@@ -7,15 +7,21 @@ import { toast } from 'react-toastify'
 
 const LoginPopup = ({setShowLogin}) => {
 
+    useEffect(() => {
+        if (localStorage.getItem('showToastAfterReload') === 'true') {
+            toast.success('Login Successfull')
+            localStorage.removeItem('showToastAfterReload');
+        }
+    }, []);
+
     const {url, setToken} = useContext(StoreContext)
 
-    const [currentState, setCurrentState] = useState("Sign Up")
+    const [currentState, setCurrentState] = useState("Sign in")
     const [data, setData] = useState({
         name: "",
         email: "",
         password: ""
     })
-
 
     const onChangeHandler = (event) => {
         const name = event.target.name
@@ -45,7 +51,8 @@ const LoginPopup = ({setShowLogin}) => {
                 setToken(response.data.token)
                 localStorage.setItem('token', response.data.token)
                 setShowLogin(false)
-                toast.success(response.data.mssg)
+                localStorage.setItem('showToastAfterReload', 'true');
+                window.location.reload()
             }
             if (response.status == 400) {
                 setShowLogin(false)
@@ -73,7 +80,7 @@ const LoginPopup = ({setShowLogin}) => {
                 <input onChange={onChangeHandler} name='email' value={data.email} type="email" placeholder='Email' required />
                 <input onChange={onChangeHandler} name='password' value={data.password} type="password" placeholder='Password' required />
             </div>
-            <button type='submit'>
+            <button className='submit-btn' type='submit'>
                 {
                     currentState === "Sign Up"
                     ? "Create Account" : "Login"

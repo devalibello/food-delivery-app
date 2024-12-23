@@ -13,11 +13,20 @@ const Navbar = ({setShowLogin}) => {
   const navigate = useNavigate()
   const userToken = localStorage.getItem('token')
 
+  useEffect(() => {
+    if (localStorage.getItem('showToastAfterReload') === 'true') {
+        toast.success('Logout Successful');
+        localStorage.removeItem('showToastAfterReload'); // Clear the flag
+    }
+}, []);
+
   const logout = () => {
       setToken('')
       localStorage.removeItem('token')
       navigate('/')
-      toast.success('Logout Successful')
+      localStorage.setItem('showToastAfterReload', 'true'); // Set flag
+      window.location.reload()
+      // toast.success('Logout Successful')
     }
 
   return (
