@@ -60,6 +60,7 @@ const LoginPopup = ({setShowLogin}) => {
             }
         }
     }
+    
 
   return (
     <div className='login-popup'>
