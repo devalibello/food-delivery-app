@@ -1,10 +1,18 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { StoreContext } from '../../context/StoreContext'
 import './Cart.css'
 import { useNavigate } from 'react-router-dom'
 import CartTotal from '../../components/CartTotal/CartTotal'
 
 const Cart = () => {
+
+  const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    // Simulate fetching token from local storage
+    const storedToken = localStorage.getItem('token');
+    setToken(storedToken);
+  }, []);
 
   const { cartItems, removeFromCart, foodList, url} = useContext(StoreContext)
 
@@ -16,6 +24,8 @@ const Cart = () => {
 
   return (
     <div className='cart'>
+      {!token && <h3 className='conditional-signin'>Sign in to view items in cart!</h3>}
+
       {foodList.map((food) => {
         // If food item ID exists in CartItems and It is greater than zero.
         // The greater than zero is important because an item can be removed and
@@ -24,17 +34,17 @@ const Cart = () => {
           return (
             <>
               <hr />
-                  <ul className='cart-header'>
-                    <li><img className='cart-food-image' src={`${url}/images/${food.image}`} alt="" /></li>
-                    <li>Name: {food.name}</li>
-                    <li>Price: ${food.price}</li>
-                    <li>Quantity: {cartItems[food._id]}</li>
-                    <li>Total: ${food.price * cartItems[food._id]}</li>
-                    <li onClick={() => removeFromCart(food._id)}>Remove</li>
-                  </ul>
+              <ul className='cart-header'>
+                <li><img className='cart-food-image' src={`${url}/images/${food.image}`} alt="" /></li>
+                <li>Name: {food.name}</li>
+                <li>Price: ${food.price}</li>
+                <li>Quantity: {cartItems[food._id]}</li>
+                <li>Total: ${food.price * cartItems[food._id]}</li>
+                <li onClick={() => removeFromCart(food._id)}>Remove</li>
+              </ul>
             </>
           )
-        }
+        } 
       })}
       <hr />
       <CartTotal payment="CHECKOUT" goToPayment={goToCheckout} />

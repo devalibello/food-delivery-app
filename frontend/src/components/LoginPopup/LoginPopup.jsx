@@ -7,14 +7,14 @@ import { toast } from 'react-toastify'
 
 const LoginPopup = ({setShowLogin}) => {
 
-    useEffect(() => {
-        if (localStorage.getItem('showToastAfterReload') === 'true') {
-            toast.success('Login Successfull')
-            localStorage.removeItem('showToastAfterReload');
-        }
-    }, []);
+    // useEffect(() => {
+    //     if (localStorage.getItem('showToastAfterReload') === 'true') {
+    //         toast.success('Login Successfull')
+    //         localStorage.removeItem('showToastAfterReload');
+    //     }
+    // }, []);
 
-    const {url, setToken} = useContext(StoreContext)
+    const {url, setToken, loadCartData} = useContext(StoreContext)
 
     const [currentState, setCurrentState] = useState("Sign in")
     const [data, setData] = useState({
@@ -51,16 +51,15 @@ const LoginPopup = ({setShowLogin}) => {
                 setToken(response.data.token)
                 localStorage.setItem('token', response.data.token)
                 setShowLogin(false)
-                localStorage.setItem('showToastAfterReload', 'true');
-                window.location.reload()
+                loadCartData(response.data.token)
+                toast.success(response.data.mssg)
             }
             if (response.status == 400) {
                 setShowLogin(false)
                 toast.error(response.data.error)
             }
         }
-    }
-    
+    }    
 
   return (
     <div className='login-popup'>

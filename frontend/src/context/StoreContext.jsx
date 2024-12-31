@@ -77,7 +77,6 @@ const StoreContextProvider = (props) => {
             if (userToken) {
                 setToken(userToken)
                 await loadCartData(userToken)
-
             }
         }
         loadData();
@@ -94,7 +93,8 @@ const StoreContextProvider = (props) => {
         getTotalAmount,
         url,
         setToken,
-        token
+        token,
+        loadCartData
     }
     
     return (

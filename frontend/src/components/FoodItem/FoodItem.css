@@ -8,15 +8,7 @@
 .dish-container-food-name {
     padding-left: 10px;
     color: white;
-    font-size: 0.9rem;
-}
-
-.add-food-white {
-    position: absolute;
-    bottom: 70px;
-    right: 8px;
-    width: 30px;
-    cursor: pointer;
+    font-size: 0.8rem;
 }
 
 .food-counter {
@@ -29,26 +21,14 @@
     background-color: white;
     border-radius: 50px;
     justify-items: center;
-}
-
-.add-food {
-    width: 25px;
-    padding-right: 4px;
-    padding-top: 4px;
-    cursor: pointer;;
-}
-
-.remove-food {
-    width: 25px;
-    padding-left: 4px;
-    padding-top: 4px;
-    cursor: pointer;
+    padding: 3px 2px 3px 2px;
 }
 
 .dish-container .cart-counter-display {
     color: var(--dark-blue);
     margin: 0px;
     padding: 0px;
+    font-size: 0.8rem;
 }
 
 .food-item-image {
@@ -58,7 +38,7 @@
 .dish-container-food-price {
     padding-left: 10px;
     padding-bottom: 10px;
-    font-size: 1.1rem;
+    font-size: 1rem;
     font-weight: 600;
     color: var(--orange);
 
@@ -70,4 +50,58 @@
 
 .food-item-image {
     border-radius: 10px 10px 0px 0px;
+}
+
+.remove-food-circle {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: rgb(248, 196, 196);
+    margin-left: 4px;
+    padding-top: 4px;
+    cursor: pointer;
+    position: relative;
+}
+
+.add-food-circle {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: rgb(198, 250, 198);
+    margin-right: 3px;
+    padding-top: 4px;
+    cursor: pointer;
+    position: relative;
+}
+
+.add-white-food-circle {
+    position: relative;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 75px;
+    right: 8px;
+    cursor: pointer;
+    background-color: white;
+    width: 30px;
+    height: 30px;
+}
+
+.plus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(5, 75, 5);
+}
+
+.minus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(199, 42, 42);
 }

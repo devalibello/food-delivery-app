@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './FoodItem.css'
 import { assets } from '../../assets/assets'
 import { useContext } from 'react'
@@ -22,11 +22,19 @@ const whiteAddToCart = (id) => {
             <img className='food-item-image' src={`${url}/images/${image}`} alt="" />
             {
                 !cartItems[id]
-                ? <img onClick={() => whiteAddToCart(id)} src={assets.addIconWhite} alt="" className='add-food-white'/>
+                ?   <div onClick={() => whiteAddToCart(id)} className="add-white-food-circle">
+                      <p className="plus">+</p>
+                    </div> 
                 : <div className="food-counter">
-                    <img onClick={() => removeFromCart(id)} src={assets.removeIconRed} alt="" className='remove-food' />
+                    {/* <img onClick={() => removeFromCart(id)} src={assets.removeIconRed} alt="" className='remove-food' /> */}
+                    <div onClick={() => removeFromCart(id)} className="remove-food-circle">
+                      <p className="minus">-</p>
+                    </div>
                     <p className="cart-counter-display">{cartItems[id]}</p>
-                    <img onClick={() => addToCart(id)} src={assets.addIconGreen} alt="" className="add-food" />
+                    {/* <img onClick={() => addToCart(id)} src={assets.addIconGreen} alt="" className="add-food" /> */}
+                    <div onClick={() => addToCart(id)} className="add-food-circle">
+                      <p className="plus">+</p>
+                    </div>
                   </div>
             }
             <p className='dish-container-food-name'>{name}</p>

@@ -8,25 +8,25 @@ import { toast } from 'react-toastify'
 
 const Navbar = ({setShowLogin}) => {
 
-  const { setToken, token } = useContext(StoreContext)
+  const { setToken, setCartItems } = useContext(StoreContext)
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const userToken = localStorage.getItem('token')
 
-  useEffect(() => {
-    if (localStorage.getItem('showToastAfterReload') === 'true') {
-        toast.success('Logout Successful');
-        localStorage.removeItem('showToastAfterReload'); // Clear the flag
-    }
-}, []);
+//   useEffect(() => {
+//     if (localStorage.getItem('showToastAfterReload') === 'true') {
+//         toast.success('Logout Successful');
+//         localStorage.removeItem('showToastAfterReload'); // Clear the flag
+//     }
+// }, []);
 
   const logout = () => {
       setToken('')
       localStorage.removeItem('token')
-      navigate('/')
-      localStorage.setItem('showToastAfterReload', 'true'); // Set flag
-      window.location.reload()
-      // toast.success('Logout Successful')
+      setCartItems({})
+      // navigate('/')
+      // window.location.reload()
+      toast.success('Logout Successful')
     }
 
   return (
