@@ -22,6 +22,7 @@
     background-color: var(--orange);
     color: white;
     border: 2px solid var(--orange);
+    font-size: 0.8em;
 }
 
 .banner-text h1 {
@@ -84,6 +85,10 @@
     .banner {
         margin-left: 70px;
         margin-right: 70px;
+    }
+
+    .banner-text h1 {
+        font-size: 2.7em;
     }
 }
 
