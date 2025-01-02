@@ -13,8 +13,15 @@
   list-style: none;
   font-family: 'Poppins', 'Courier New', Courier, monospace;
   box-sizing: border-box;
+  max-width: 1240px;
 }
 
 body {
-  /* font-size: 26px; */
+  font-size: 16px;
+}
+
+@media screen and (min-width: 425px) {
+  body {
+    font-size: 17px;
+  }
 }

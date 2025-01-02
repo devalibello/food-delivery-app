@@ -12,3 +12,35 @@
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
+
+@media screen and (min-width: 560px) {
+    .dishes {
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    .dish-section {
+        gap: 30px;
+    }
+}
+
+@media screen and (min-width: 650px) {
+    .dish-section {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 890px) {
+    .dish-section {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .dishes {
+        margin-left: 70px;
+        margin-right: 70px;
+    }
+
+    .dish-section {
+        gap: 20px;
+    }
+}

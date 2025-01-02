@@ -8,7 +8,7 @@
 .dish-container-food-name {
     padding-left: 10px;
     color: white;
-    font-size: 0.8rem;
+    font-size: 0.8em;
 }
 
 .food-counter {
@@ -28,7 +28,7 @@
     color: var(--dark-blue);
     margin: 0px;
     padding: 0px;
-    font-size: 0.8rem;
+    font-size: 0.8em;
 }
 
 .food-item-image {
@@ -38,7 +38,7 @@
 .dish-container-food-price {
     padding-left: 10px;
     padding-bottom: 10px;
-    font-size: 1rem;
+    font-size: 1em;
     font-weight: 600;
     color: var(--orange);
 

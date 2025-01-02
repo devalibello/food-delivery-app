@@ -31,11 +31,60 @@
 .banner-text p {
     margin-top: 20px;
     margin-bottom: 20px;
-    font-size: 1rem;
+    font-size: 1em;
 }
 
 .banner-text span {
     color: var(--orange);
+}
+
+@media screen and (min-width: 425px) {
+    .banner-image {
+        width: 75%;
+    }
+}
+
+@media screen and (min-width: 560px) {
+    .banner {
+        margin-left: 40px;
+        margin-right: 40px;
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .banner-image {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 650px) {
+    .banner-image {
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .banner {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .banner-image {
+        width: 35%;
+    }
+}
+
+@media screen and (min-width: 890px) {
+
+    .banner-image {
+        width: 30%;
+    }
+
+    .banner {
+        margin-left: 70px;
+        margin-right: 70px;
+    }
 }
 
 
