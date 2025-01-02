@@ -17,8 +17,12 @@ import instagram from './Instagram.png'
 import logo2 from './logo2.png'
 import tiktok from './TikTok.png'
 import snapchat from './Snapchat.png'
+import orange_banner from './orange-background.png'
+import banner_picture_2 from './banner-picture-2.png'
 
 export const assets = {
+    orange_banner,
+    banner_picture_2,
     tiktok,
     snapchat,
     logo2,
