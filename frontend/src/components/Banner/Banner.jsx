@@ -11,8 +11,6 @@ const Banner = () => {
           <button className='btn view'>View Menu</button>
       </div>
       <img className='banner-image' src={assets.bannerImage} alt="" />
-      <img className='orange_banner' src={assets.orange_banner} alt="" />
-      <img className='banner_picture_2' src={assets.banner_picture_2} alt="" />
     </div>
   )
 }

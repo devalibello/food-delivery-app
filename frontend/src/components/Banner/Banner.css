@@ -1,6 +1,6 @@
 .banner {
     background-color: var(--light-ash);
-    /* border-radius: 20px; */
+    border-radius: 20px;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -82,30 +82,11 @@
 
     .banner-image {
         width: 30%;
-        z-index: 1;
-        margin-right: 50px;
     }
 
     .banner {
         margin-left: 70px;
         margin-right: 70px;
-    }
-
-    .orange_banner {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-        width: 30%;
-        /* display: none; */
-
-    }
-
-    .banner_picture_2 {
-        position: absolute;
-        right: 0;
-        top: 0;
-        display: none;
-
     }
 }
 
