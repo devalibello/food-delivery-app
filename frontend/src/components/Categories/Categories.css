@@ -5,6 +5,7 @@
 .categories .categories-subheading {
     margin-top: 10px;
     margin-bottom: 30px;
+    font-size: 1rem;
 }
 
 .food-container {
@@ -35,6 +36,18 @@
     cursor: pointer;
 }
 
+.food-categories img {
+    width: 180px;
+}
+
 .food-categories::-webkit-scrollbar {
     display: none;
+}
+
+.category-food-name {
+    font-size: 1rem;
+}
+
+.category-food-footer {
+    font-size: 0.9rem;
 }

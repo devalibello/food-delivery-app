@@ -1,0 +1,49 @@
+.upper-footer {
+    background-color: #D9D9D9;
+}
+
+.logo2-section img {
+    margin-top: 40px;
+    width: 150px;
+}
+
+.logo2-section p {
+    text-align: center;
+    font-size: 0.7rem;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.logo2-section {
+    text-align: center;
+}
+
+.footer-socials img {
+    width: 30px;
+}
+
+.footer-socials {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.footer-links {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding-bottom: 20px;
+    font-size: 0.8rem;
+}
+
+.footer-links :nth-child(1) {
+    font-weight: 700;
+}
+
+.lower-footer {
+    background-color: var(--dark-blue);
+    color: white;
+    font-size: 0.6rem;
+    padding: 20px;
+    text-align: center;
+}
