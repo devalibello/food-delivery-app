@@ -26,12 +26,10 @@ const whiteAddToCart = (id) => {
                       <p className="plus">+</p>
                     </div> 
                 : <div className="food-counter">
-                    {/* <img onClick={() => removeFromCart(id)} src={assets.removeIconRed} alt="" className='remove-food' /> */}
                     <div onClick={() => removeFromCart(id)} className="remove-food-circle">
                       <p className="minus">-</p>
                     </div>
                     <p className="cart-counter-display">{cartItems[id]}</p>
-                    {/* <img onClick={() => addToCart(id)} src={assets.addIconGreen} alt="" className="add-food" /> */}
                     <div onClick={() => addToCart(id)} className="add-food-circle">
                       <p className="plus">+</p>
                     </div>

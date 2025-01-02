@@ -12,8 +12,18 @@ import crossIcon from './cross_icon.png'
 import bagIcon from './bag_icon.png'
 import profile_icon from './profile_icon.png'
 import logout_icon from './logout_icon.png'
+import facebook from './Facebook.png'
+import instagram from './Instagram.png'
+import logo2 from './logo2.png'
+import tiktok from './TikTok.png'
+import snapchat from './Snapchat.png'
 
 export const assets = {
+    tiktok,
+    snapchat,
+    logo2,
+    instagram,
+    facebook,
     bannerImage,
     burger,
     logo,

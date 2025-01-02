@@ -73,3 +73,16 @@
 .profile-icon {
     cursor: pointer;
 }
+
+.cart-counter {
+    transform: translate(20px, -20px);
+    position: absolute;
+    background-color: var(--green);
+    color: white;
+    min-width: 20px;
+    min-height: 20px;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    text-align: center;
+    padding: 2px 4px;
+}

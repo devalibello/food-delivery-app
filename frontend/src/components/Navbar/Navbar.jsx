@@ -8,24 +8,14 @@ import { toast } from 'react-toastify'
 
 const Navbar = ({setShowLogin}) => {
 
-  const { setToken, setCartItems } = useContext(StoreContext)
+  const { setToken, setCartItems, cartItems, token } = useContext(StoreContext)
 
-  // const navigate = useNavigate()
   const userToken = localStorage.getItem('token')
-
-//   useEffect(() => {
-//     if (localStorage.getItem('showToastAfterReload') === 'true') {
-//         toast.success('Logout Successful');
-//         localStorage.removeItem('showToastAfterReload'); // Clear the flag
-//     }
-// }, []);
 
   const logout = () => {
       setToken('')
       localStorage.removeItem('token')
       setCartItems({})
-      // navigate('/')
-      // window.location.reload()
       toast.success('Logout Successful')
     }
 
@@ -34,7 +24,10 @@ const Navbar = ({setShowLogin}) => {
       <Link to='/'><img className='logo' src={assets.logo} alt="" /></Link>
       <div className="right-nav">
           <div className="nav-menu">
-            <Link to='/cart'><img src={assets.bagIcon} alt="" className="cart-icon" /></Link>
+            <Link to='/cart'>
+              <img src={assets.bagIcon} alt="" className="cart-icon" />
+              {token && <p className='cart-counter' >{Object.values(cartItems).reduce((sum, quantity) =>  sum + quantity, 0 )}</p>}
+            </Link>
             {
               userToken ? 
               <div className="profile-container">
