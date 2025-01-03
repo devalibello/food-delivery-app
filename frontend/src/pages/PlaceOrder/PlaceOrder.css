@@ -29,3 +29,17 @@
 .dual-input {
     min-width: 0;
 }
+
+@media screen and (min-width: 560px) {
+    .place-order {
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+}
+
+@media screen and (min-width: 890px) {
+    .place-order {
+        margin-left: 70px;
+        margin-right: 70px;
+    }
+}

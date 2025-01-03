@@ -7,7 +7,7 @@ import CartTotal from '../../components/CartTotal/CartTotal'
 const Cart = () => {
 
 
-  const { cartItems, removeFromCart, foodList, url, token} = useContext(StoreContext)
+  const { cartItems, removeFromCart, foodList, url} = useContext(StoreContext)
 
   const navigate = useNavigate()
 
@@ -15,10 +15,11 @@ const Cart = () => {
     navigate('/order')
   } 
 
+  const userToken = localStorage.getItem('token')
+
   return (
     <div className='cart'>
-      {!token && <h3 className='conditional-signin'>Sign in to view items in cart!</h3>}
-      <hr />
+      {!userToken && <h3 className='conditional-signin'>Sign in to view items in cart!</h3>}
       <div className='cart-flex'>
       {foodList.map((food) => {
         // If food item ID exists in CartItems and It is greater than zero.
@@ -40,7 +41,6 @@ const Cart = () => {
         } 
       })}
       </div>
-
       <hr />
       <CartTotal payment="CHECKOUT" goToPayment={goToCheckout} />
     </div>
