@@ -48,37 +48,37 @@ const AddItem = ({url}) => {
   return (
     <div className='add-item'>
         <form className="add-item-form" onSubmit={onSubmitHandler}>
-            <div className="product-info">
-                <p className='add-item-form-label'>Product Image</p>
-                <label htmlFor="image">
-                    <img src={image ? URL.createObjectURL(image) : assets.upload_area} alt="product" className="add-image" />
-                </label>
-                <input onChange={(e) => (setImage(e.target.files[0]))} type="file" id='image' hidden required />
+        <div className="product-info">
+            <p className='add-item-form-label'>Product Image</p>
+            <label htmlFor="image">
+                <img src={image ? URL.createObjectURL(image) : assets.upload_area} alt="product" className="add-image" />
+            </label>
+            <input onChange={(e) => (setImage(e.target.files[0]))} type="file" id='image' hidden required />
+        </div>
+        <div className="product-info">
+            <p className='add-item-form-label'>Product Name</p>
+            <input onChange={onChangeHandler} name='name' value={data.name} type="text" placeholder='Type Here' required/>
+        </div>
+        <div className="product-info">
+            <p className='add-item-form-label'>Product Description</p>
+            <textarea onChange={onChangeHandler} name='description' value={data.description} rows='5' type='longtext' placeholder='Type Here' required />
+        </div>
+        <div className="product-category-price">
+            <div className="side-product">
+                <p className='add-item-form-label'>Product Category</p>
+                <select onChange={onChangeHandler} name='category'>
+                    <option value="Pizza">Pizza</option>
+                    <option value="Cake">Cake</option>
+                    <option value="Salad">Salad</option>
+                    <option value="Desert">Desert</option>
+                </select>
             </div>
-            <div className="product-info">
-                <p className='add-item-form-label'>Product Name</p>
-                <input onChange={onChangeHandler} name='name' value={data.name} type="text" placeholder='Type Here' required/>
-            </div>
-            <div className="product-info">
-                <p className='add-item-form-label'>Product Description</p>
-                <textarea onChange={onChangeHandler} name='description' value={data.description} rows='5' type='longtext' placeholder='Type Here' required />
-            </div>
-            <div className="product-category-price">
-                <div className="side-product">
-                    <p className='add-item-form-label'>Product Category</p>
-                    <select onChange={onChangeHandler} name='category'>
-                        <option value="Pizza">Pizza</option>
-                        <option value="Cake">Cake</option>
-                        <option value="Salad">Salad</option>
-                        <option value="Desert">Desert</option>
-                    </select>
-                </div>
-                <div className="side-product">
-                    <p className='add-item-form-label'>Product Price</p>
-                    <input onChange={onChangeHandler} name='price' value={data.price} type='Number' placeholder='Enter Price' />
-                </div>            
-            </div>
-            <button type='submit'>Add</button>
+            <div className="side-product">
+                <p className='add-item-form-label'>Product Price</p>
+                <input onChange={onChangeHandler} name='price' value={data.price} type='Number' placeholder='Enter Price' />
+            </div> 
+        </div>
+        <button type='submit'>Add</button>
         </form>
     </div>
   )

@@ -8,6 +8,7 @@
 
 .add-item {
     margin: 20px;
+    max-width: 560px;
 }
 
 .add-item-form {
@@ -19,6 +20,7 @@
 
 .product-category-price {
     display: flex;
+    flex-direction: column;
     gap: 20px;
     min-width: 0px;
     width: 100%;
@@ -33,7 +35,7 @@ button {
     color: white;
     font-weight: 500;
     border-radius: 4px;
-    font-size: 1rem;
+    font-size: 1em;
     cursor: pointer;
 }
 
@@ -43,4 +45,26 @@ button {
 
 .add-image {
     width: 150px;
+}
+
+@media screen and (min-width: 560px) {
+    .add-item {
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    .product-category-price {
+        flex-direction: row;
+    } 
+
+    .side-product {
+        flex: 1;
+    }
+}
+
+@media screen and (min-width: 890px) {
+    .add-item {
+        margin-left: 70px;
+        margin-right: 70px;
+    }
 }
