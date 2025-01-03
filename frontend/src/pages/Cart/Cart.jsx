@@ -6,15 +6,8 @@ import CartTotal from '../../components/CartTotal/CartTotal'
 
 const Cart = () => {
 
-  const [token, setToken] = useState(null);
 
-  useEffect(() => {
-    // Simulate fetching token from local storage
-    const storedToken = localStorage.getItem('token');
-    setToken(storedToken);
-  }, []);
-
-  const { cartItems, removeFromCart, foodList, url} = useContext(StoreContext)
+  const { cartItems, removeFromCart, foodList, url, token} = useContext(StoreContext)
 
   const navigate = useNavigate()
 
@@ -25,7 +18,8 @@ const Cart = () => {
   return (
     <div className='cart'>
       {!token && <h3 className='conditional-signin'>Sign in to view items in cart!</h3>}
-
+      <hr />
+      <div className='cart-flex'>
       {foodList.map((food) => {
         // If food item ID exists in CartItems and It is greater than zero.
         // The greater than zero is important because an item can be removed and
@@ -33,7 +27,6 @@ const Cart = () => {
         if(cartItems[food._id] > 0) {
           return (
             <>
-              <hr />
               <ul className='cart-header'>
                 <li><img className='cart-food-image' src={`${url}/images/${food.image}`} alt="" /></li>
                 <li>Name: {food.name}</li>
@@ -46,6 +39,8 @@ const Cart = () => {
           )
         } 
       })}
+      </div>
+
       <hr />
       <CartTotal payment="CHECKOUT" goToPayment={goToCheckout} />
     </div>
