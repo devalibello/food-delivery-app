@@ -17,8 +17,10 @@ import instagram from './Instagram.png'
 import logo2 from './logo2.png'
 import tiktok from './TikTok.png'
 import snapchat from './Snapchat.png'
+import desert from './cookies.png'
 
 export const assets = {
+    desert,
     tiktok,
     snapchat,
     logo2,
@@ -44,29 +46,35 @@ export const categoryList = [
     {
         image: burger,
         name: 'Burger',
-        footer: 'Special Taste'
+        footer: 'Delicious Bites'
     },
     {
         image: pasta,
         name: 'Pasta',
-        footer: 'Special Taste'
+        footer: 'Italian Flavors'
     },
     {
         image: pizza,
         name: 'Pizza',
-        footer: 'Special Taste'
+        footer: 'Cheesy Delight'
     },
     {
         image: salad,
         name: 'Salad',
-        footer: 'Special Taste'
+        footer: 'Fresh Greens'
     },
     {
         image: soup,
         name: 'Soup',
-        footer: 'Special Taste'
+        footer: 'Warm Comfort'
     },
-]
+    {
+        image: desert,
+        name: 'Desert',
+        footer: 'Sweet Treat'
+    }
+];
+
 
 export const foodList = [
     {
