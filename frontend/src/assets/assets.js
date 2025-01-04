@@ -45,7 +45,7 @@ export const assets = {
 export const categoryList = [
     {
         image: burger,
-        name: 'Burger',
+        name: 'Sandwich',
         footer: 'Delicious Bites'
     },
     {
@@ -55,7 +55,7 @@ export const categoryList = [
     },
     {
         image: pizza,
-        name: 'Pizza',
+        name: 'Paratha Rolls',
         footer: 'Cheesy Delight'
     },
     {

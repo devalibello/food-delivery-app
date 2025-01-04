@@ -7,13 +7,6 @@ import { toast } from 'react-toastify'
 
 const LoginPopup = ({setShowLogin}) => {
 
-    // useEffect(() => {
-    //     if (localStorage.getItem('showToastAfterReload') === 'true') {
-    //         toast.success('Login Successfull')
-    //         localStorage.removeItem('showToastAfterReload');
-    //     }
-    // }, []);
-
     const {url, setToken, loadCartData} = useContext(StoreContext)
 
     const [currentState, setCurrentState] = useState("Sign in")
@@ -28,38 +21,79 @@ const LoginPopup = ({setShowLogin}) => {
         setData((prevData) => ({...prevData, [name]: event.target.value }))
     }
 
+    // const onSubmitHandler = async (event) => {
+    //     event.preventDefault()
+    //     document.body.style.overflow = 'auto';
+    //     if (currentState === "Sign Up") {
+    //         const response = await axios.post(`${url}/api/user/signup`, data)
+    //         if (response.status == 200) {
+    //             setToken(response.data.token)
+    //             localStorage.setItem('token', response.data.token)
+    //             setShowLogin(false)
+    //             toast.success(response.data.mssg)
+    //         }
+
+    //         if (response.status == 400) {
+    //             setShowLogin(false)
+    //             toast.error(response.data.mssg)
+    //         }
+
+    //     } else {
+    //         delete data.name
+    //         console.log(data)
+    //         const response = await axios.post(`${url}/api/user/login`, data)
+    //         console.log("Hello")
+    //         if (response.status == 200) {
+    //             setToken(response.data.token)
+    //             localStorage.setItem('token', response.data.token)
+    //             setShowLogin(false)
+    //             loadCartData(response.data.token)
+    //             toast.success(response.data.mssg)
+    //         }
+    //         if (response.status == 400) {
+    //             setShowLogin(false)
+    //             toast.error(response.data.mssg)
+    //         }
+    //     }
+    // }   
+    
     const onSubmitHandler = async (event) => {
-        event.preventDefault()
+        event.preventDefault();
         document.body.style.overflow = 'auto';
-        if (currentState === "Sign Up") {
-            const response = await axios.post(`${url}/api/user/signup`, data)
-            if (response.status == 200) {
-                setToken(response.data.token)
-                localStorage.setItem('token', response.data.token)
-                setShowLogin(false)
-                toast.success(response.data.mssg)
+    
+        try {
+            if (currentState === "Sign Up") {
+                const response = await axios.post(`${url}/api/user/signup`, data);
+                setToken(response.data.token);
+                localStorage.setItem('token', response.data.token);
+                setShowLogin(false);
+                toast.success(response.data.mssg);
+            } else {
+                delete data.name;
+                const response = await axios.post(`${url}/api/user/login`, data);
+                setToken(response.data.token);
+                localStorage.setItem('token', response.data.token);
+                setShowLogin(false);
+                loadCartData(response.data.token);
+                toast.success(response.data.mssg);
             }
-
-            if (response.status == 400) {
-                setShowLogin(false)
-                toast.error(response.data.error)
-            }
-
-        } else {
-            const response = await axios.post(`${url}/api/user/login`, data)
-            if (response.status == 200) {
-                setToken(response.data.token)
-                localStorage.setItem('token', response.data.token)
-                setShowLogin(false)
-                loadCartData(response.data.token)
-                toast.success(response.data.mssg)
-            }
-            if (response.status == 400) {
-                setShowLogin(false)
-                toast.error(response.data.error)
+        } catch (error) {
+            if (error.response) {
+                // The server responded with a status code out of 2xx range
+                setShowLogin(false);
+                toast.error(error.response.data.mssg || "Something went wrong!");
+            } else if (error.request) {
+                // The request was made but no response was received
+                setShowLogin(false);
+                toast.error("No response from server. Please try again.");
+            } else {
+                // Something happened in setting up the request
+                setShowLogin(false);
+                toast.error("An error occurred. Please try again.");
             }
         }
-    }    
+    };
+    
 
   return (
     <div className='login-popup'>

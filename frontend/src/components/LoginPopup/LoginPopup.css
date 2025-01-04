@@ -78,3 +78,7 @@
 .close-login {
     cursor: pointer;
 }
+
+.login-footer, .login-condition p {
+    font-size: 0.7em;
+}

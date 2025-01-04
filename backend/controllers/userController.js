@@ -8,7 +8,6 @@ const createToken = (_id) => {
 //login
 const userLogin = async (req, res) => {
     const { email, password } = req.body;
-
     try {
         const user = await User.login(email, password)
 
@@ -16,7 +15,7 @@ const userLogin = async (req, res) => {
         const token = createToken(user._id)
         res.status(200).json({ mssg: "login successful", token });
     }catch(error) {
-        res.status(400).json({error: error.message})
+        res.status(400).json({ mssg: error.message });
     }
 };
 
@@ -32,7 +31,7 @@ const userSignUp = async (req, res) => {
 
     res.status(200).json({ mssg: "Signup Successful", token});
   } catch (error) {
-    res.status(400).json({ error: error.message });
+    res.status(400).json({ mssg: error.message });
   }
 };
 
