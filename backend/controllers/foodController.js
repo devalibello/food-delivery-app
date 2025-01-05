@@ -50,7 +50,7 @@ const deleteFood = async (req, res) => {
         })
     }
 
-    res.status(200).json(food)
+    res.status(200).json({mssg: 'Food Deleted'})
 }
 
 module.exports = {

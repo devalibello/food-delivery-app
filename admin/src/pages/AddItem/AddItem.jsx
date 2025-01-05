@@ -10,7 +10,7 @@ const AddItem = ({url}) => {
     const [data, setData] = useState({
         name : '',
         description: '',
-        category: 'Pizza',
+        category: '',
         price: ''
     })
 
@@ -34,7 +34,7 @@ const AddItem = ({url}) => {
             setData({
                 name : '',
                 description: '',
-                category: 'Dessert',
+                category: '',
                 price: ''
             })
             setImage(false)
@@ -67,7 +67,6 @@ const AddItem = ({url}) => {
             <div className="side-product">
                 <p className='add-item-form-label'>Product Category</p>
                 <select onChange={onChangeHandler} name='category'>
-                    <option value=""></option>
                     <option value="Dessert">Dessert</option>
                     <option value="Pasta">Pasta</option>
                     <option value="Salad">Salad</option>

@@ -22,7 +22,7 @@ const fetchFood = async () => {
 const deleteFood = async (id) => {
   const response = await axios.delete(`${url}/api/foods/${id}`)
   if (response.status == 200) {
-    toast.success("Food Deleted")
+    toast.success(response.data.mssg)
     fetchFood()
   } else {
     toast.error("Error Deleting Food")

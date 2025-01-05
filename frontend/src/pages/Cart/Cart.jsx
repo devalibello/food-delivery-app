@@ -29,12 +29,12 @@ const Cart = () => {
           return (
             <>
               <ul className='cart-header'>
-                <li><img className='cart-food-image' src={`${url}/images/${food.image}`} alt="" /></li>
+                <li className='cart-image-container'><img className='cart-food-image' src={`${url}/images/${food.image}`} alt="" /></li>
                 <li>Name: {food.name}</li>
                 <li>Price: ${food.price}</li>
                 <li>Quantity: {cartItems[food._id]}</li>
                 <li>Total: ${food.price * cartItems[food._id]}</li>
-                <li onClick={() => removeFromCart(food._id)}>Remove</li>
+                <li className='remove-from-cart' onClick={() => removeFromCart(food._id)}>Remove</li>
               </ul>
             </>
           )

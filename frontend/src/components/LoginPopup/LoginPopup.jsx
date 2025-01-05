@@ -58,14 +58,13 @@ const LoginPopup = ({setShowLogin}) => {
     // }   
     
     const onSubmitHandler = async (event) => {
-        event.preventDefault();
-        document.body.style.overflow = 'auto';
-    
+        event.preventDefault();    
         try {
             if (currentState === "Sign Up") {
                 const response = await axios.post(`${url}/api/user/signup`, data);
                 setToken(response.data.token);
                 localStorage.setItem('token', response.data.token);
+                document.body.style.overflow = 'auto';
                 setShowLogin(false);
                 toast.success(response.data.mssg);
             } else {
@@ -73,20 +72,24 @@ const LoginPopup = ({setShowLogin}) => {
                 const response = await axios.post(`${url}/api/user/login`, data);
                 setToken(response.data.token);
                 localStorage.setItem('token', response.data.token);
+                document.body.style.overflow = 'auto';
                 setShowLogin(false);
                 loadCartData(response.data.token);
                 toast.success(response.data.mssg);
             }
         } catch (error) {
             if (error.response) {
+                document.body.style.overflow = 'auto';
                 // The server responded with a status code out of 2xx range
                 setShowLogin(false);
                 toast.error(error.response.data.mssg || "Something went wrong!");
             } else if (error.request) {
+                document.body.style.overflow = 'auto';
                 // The request was made but no response was received
                 setShowLogin(false);
                 toast.error("No response from server. Please try again.");
             } else {
+                document.body.style.overflow = 'auto';
                 // Something happened in setting up the request
                 setShowLogin(false);
                 toast.error("An error occurred. Please try again.");

@@ -1,20 +1,21 @@
 .cart-header {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 150px minmax(0px, 180px);
     grid-template-rows: repeat(4, 1fr);
     gap: 10px;
     align-items: center;
     margin-top: 15px;
     margin-bottom: 10px;
     font-weight: 500;
-    min-width: -webkit-fill-available;
-    min-width: fit-content;
+    /* min-width: -webkit-fill-available;
+    min-width: fit-content; */
     font-size: 0.8em;
 }
 
 .cart-header :nth-child(1) {
     grid-row: 1/4;
     grid-column: 1/2;
+    max-width: 150px;
 }
 
 .cart-header :nth-child(2) {
@@ -50,6 +51,7 @@
 .cart-flex {
     display: flex;
     flex-wrap: wrap;
+    gap: 20px;
 }
 
 .cart {
@@ -58,7 +60,9 @@
 
 .cart-food-image {
     width: 150px;
+    height: 116.66px;
     border-radius: 5px;
+
 }
 
 .checkout-btn {
@@ -78,6 +82,14 @@
     font-size: 1rem;
     margin-bottom: 20px;
     color: var(--green);
+}
+
+.cart-header .remove-from-cart {
+    width: 150px;
+}
+
+.cart-header .cart-image-container {
+    max-width: 150px;
 }
 
 @media screen and (min-width: 560px) {
