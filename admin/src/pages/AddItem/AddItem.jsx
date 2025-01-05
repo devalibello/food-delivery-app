@@ -34,7 +34,7 @@ const AddItem = ({url}) => {
             setData({
                 name : '',
                 description: '',
-                category: '',
+                category: `${data.category}`,
                 price: ''
             })
             setImage(false)
@@ -66,7 +66,8 @@ const AddItem = ({url}) => {
         <div className="product-category-price">
             <div className="side-product">
                 <p className='add-item-form-label'>Product Category</p>
-                <select onChange={onChangeHandler} name='category'>
+                <select onChange={onChangeHandler} name='category' required>
+                    <option value="" disabled selected>Select a category</option>
                     <option value="Dessert">Dessert</option>
                     <option value="Pasta">Pasta</option>
                     <option value="Salad">Salad</option>
