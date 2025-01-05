@@ -10,6 +10,11 @@
     max-width: 1240px;
 }
 
+.profile-picture {
+    width: 100px;
+    border-radius: 50%;
+}
+
 @media screen and (min-width: 560px) {
     .navbar {
         margin-left: 70px;
