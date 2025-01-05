@@ -41,7 +41,10 @@ fetchFood()
           <ul className='list-items-container'>
             <li className='remove-minus-container'>
               <img className='list-items-image' src={`${url}/images/` + food.image} alt="" />
-              <img onClick={() => deleteFood(food._id)} className='list-item-cross' src={assets.remove_icon_red} alt="" />
+              <div onClick={() => deleteFood(food._id)} className='list-item-cross'>
+                <p className="minus">-</p>
+              </div>
+              {/* <img onClick={() => deleteFood(food._id)} className='list-item-cross' src={assets.remove_icon_red} alt="" /> */}
             </li>
             <li>Name: {food.name}</li>
             <li>Price: ${food.price}</li>

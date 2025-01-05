@@ -11,7 +11,14 @@
     position: absolute;
     bottom: 20px;
     right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: rgb(248, 196, 196);
+    margin-left: 4px;
+    padding-top: 4px;
     cursor: pointer;
+
 }
 
 .list-items-image {
@@ -37,6 +44,17 @@
 
 .remove-minus-container {
     position: relative;
+}
+
+.minus {
+    padding-left: 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: 700;
+    color: rgb(199, 42, 42);
 }
 
 @media screen and (min-width: 560px) {

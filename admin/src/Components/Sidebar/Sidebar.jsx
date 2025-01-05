@@ -7,7 +7,7 @@ const Sidebar = () => {
   return (
     <div className='sidebar'>
         <hr className='hr-1'/>
-        <NavLink to='/add' className="sidebar-menu one">
+        <NavLink to='/' className="sidebar-menu one">
             <img src={assets.add_icon} alt="" />
             <h4>Add Food</h4>
         </NavLink>

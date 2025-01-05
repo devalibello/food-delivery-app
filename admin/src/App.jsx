@@ -16,7 +16,7 @@ const App = () => {
       <ToastContainer />
       <Sidebar />
         <Routes>
-          <Route path='/add' element={<AddItem url={url}/>}/>
+          <Route path='/' element={<AddItem url={url}/>}/>
           <Route path='/list' element={<ListItem url={url}/>} />
         </Routes>
     </div>
