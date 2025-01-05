@@ -39,11 +39,13 @@ fetchFood()
         foodList.map((food) => 
         <>
           <ul className='list-items-container'>
-            <li><img className='list-items-image' src={`${url}/images/` + food.image} alt="" /></li>
+            <li className='remove-minus-container'>
+              <img className='list-items-image' src={`${url}/images/` + food.image} alt="" />
+              <img onClick={() => deleteFood(food._id)} className='list-item-cross' src={assets.remove_icon_red} alt="" />
+            </li>
             <li>Name: {food.name}</li>
             <li>Price: ${food.price}</li>
             <li>Category: {food.category}</li>
-            <img onClick={() => deleteFood(food._id)} className='list-item-cross' src={assets.remove_icon_red} alt="" />
           </ul>
         </>
         )
