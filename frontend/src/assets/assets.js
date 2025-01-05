@@ -55,7 +55,7 @@ export const categoryList = [
     },
     {
         image: pizza,
-        name: 'Paratha Rolls',
+        name: 'Paratha',
         footer: 'Cheesy Delight'
     },
     {
@@ -70,7 +70,7 @@ export const categoryList = [
     },
     {
         image: desert,
-        name: 'Desert',
+        name: 'Dessert',
         footer: 'Sweet Treat'
     }
 ];

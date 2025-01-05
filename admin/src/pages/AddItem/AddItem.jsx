@@ -72,6 +72,8 @@ const AddItem = ({url}) => {
                     <option value="Pasta">Pasta</option>
                     <option value="Salad">Salad</option>
                     <option value="Sandwich">Sandwich</option>
+                    <option value="Paratha">Paratha Rolls</option>
+                    <option value="Soup">Soup</option>
                 </select>
             </div>
             <div className="side-product">
