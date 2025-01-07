@@ -4,7 +4,7 @@ const authMiddleware = require('../middleware/auth')
 
 const router = express.Router()
 
-router.post('/', authMiddleware, placeOrder)
+router.post('/placeorder', authMiddleware, placeOrder)
 router.post('/verify', verifyOrder)
 
 module.exports = router

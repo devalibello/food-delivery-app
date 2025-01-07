@@ -52,7 +52,7 @@ const PlaceOrder = () => {
       amount: getTotalAmount() + 50
     }
 
-    let response = await axios.post(`${url}/api/order`, orderData, { headers: {Authorization: `Bearer ${token}`} })
+    let response = await axios.post(`${url}/api/order/placeorder`, orderData, { headers: {Authorization: `Bearer ${token}`} })
 
     if (response.data.success) {
       const {success_url} = response.data
