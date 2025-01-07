@@ -1,3 +1,4 @@
+const orderModel = require('../models/orderModel')
 const Order = require('../models/orderModel')
 const User = require('../models/userModel')
 const Stripe = require('stripe')
@@ -56,4 +57,21 @@ const frontend_url = "http://localhost:5174"
 
 }
 
-module.exports = placeOrder
+const verifyOrder = async (req, res) => {
+    const { orderId, success } = req.body
+    try {
+        if (success == 'true') {
+            await orderModel.findByIdAndUpdate(orderId, {payment: true})
+            res.status(200).json({mssg: "Payment Successful"})
+        }
+        else {
+            await orderModel.findByIdAndDelete(orderId)
+            res.status(400).json({mssg: "Payment Failed"})
+        }
+    } catch (error) {
+        console.log(error)
+        res.status(400).json({mssg: error.message})
+    }
+}
+
+module.exports = { placeOrder, verifyOrder }
