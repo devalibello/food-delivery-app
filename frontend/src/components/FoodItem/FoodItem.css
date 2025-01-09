@@ -21,7 +21,7 @@
     background-color: white;
     border-radius: 50px;
     justify-items: center;
-    padding: 3px 2px 3px 2px;
+    padding: 3px 4px 3px 4px;
 }
 
 .dish-container .cart-counter-display {
@@ -53,10 +53,8 @@
     height: 25px;
     border-radius: 50%;
     background-color: rgb(248, 196, 196);
-    margin-left: 4px;
-    padding-top: 4px;
+    border: none;
     cursor: pointer;
-    position: relative;
 }
 
 .add-food-circle {
@@ -64,10 +62,13 @@
     height: 25px;
     border-radius: 50%;
     background-color: rgb(198, 250, 198);
-    margin-right: 3px;
-    padding-top: 4px;
     cursor: pointer;
-    position: relative;
+    border: none;
+    
+}
+
+.add-food-circle:focus{
+    outline: none !important;
 }
 
 .add-white-food-circle {
@@ -83,20 +84,27 @@
 }
 
 .plus {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 18px;
     font-weight: 500;
     color: rgb(5, 75, 5);
 }
 
+.white-plus {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    border: none;
+}
+
 .minus {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 18px;
     font-weight: 500;
     color: rgb(199, 42, 42);

@@ -22,17 +22,17 @@ const whiteAddToCart = (id) => {
             <img className='food-item-image' src={`${url}/images/${image}`} alt="" />
             {
                 !cartItems[id]
-                ?   <div onClick={() => whiteAddToCart(id)} className="add-white-food-circle">
-                      <p className="plus">+</p>
-                    </div> 
+                ?  <button onClick={() => whiteAddToCart(id)} className="add-white-food-circle white-plus">
+                      +
+                    </button>
                 : <div className="food-counter">
-                    <div onClick={() => removeFromCart(id)} className="remove-food-circle">
-                      <p className="minus">-</p>
-                    </div>
+                    <button onClick={() => removeFromCart(id)} className="remove-food-circle minus">
+                      -
+                    </button>
                     <p className="cart-counter-display">{cartItems[id]}</p>
-                    <div onClick={() => addToCart(id)} className="add-food-circle">
-                      <p className="plus">+</p>
-                    </div>
+                    <button onClick={() => addToCart(id)} className="add-food-circle plus">
+                      +
+                    </button>
                   </div>
             }
             <p className='dish-container-food-name'>{name}</p>
