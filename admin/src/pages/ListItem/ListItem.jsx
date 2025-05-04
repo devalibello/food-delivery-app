@@ -44,7 +44,6 @@ fetchFood()
               <div onClick={() => deleteFood(food._id)} className='list-item-cross'>
                 <p className="minus">-</p>
               </div>
-              {/* <img onClick={() => deleteFood(food._id)} className='list-item-cross' src={assets.remove_icon_red} alt="" /> */}
             </li>
             <li>Name: {food.name}</li>
             <li>Price: ${food.price}</li>

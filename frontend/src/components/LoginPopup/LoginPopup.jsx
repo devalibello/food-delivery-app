@@ -77,7 +77,8 @@ const LoginPopup = ({setShowLogin}) => {
                 loadCartData(response.data.token);
                 toast.success(response.data.mssg);
             }
-        } catch (error) {
+        } 
+        catch (error) {
             if (error.response) {
                 document.body.style.overflow = 'auto';
                 // The server responded with a status code out of 2xx range
