@@ -22,6 +22,7 @@ const Cart = () => {
       {!userToken && <h3 className='conditional-signin'>Sign in to view items in cart!</h3>}
       <div className='cart-flex'>
       {foodList.map((food) => {
+        //NOTE
         // If food item ID exists in CartItems and It is greater than zero.
         // The greater than zero is important because an item can be removed and
         // its quantity will go back to zero
